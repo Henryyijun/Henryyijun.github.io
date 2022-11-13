@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>vector介绍 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="vector vector定义摘要 12345template&lt;class T, class Alloc &#x3D; alloc&gt;class vector &amp;#123; &#x2F;&#x2F;&#x2F; 省略一万字&amp;#125; vector的构造函数    默认构造函数 vector(); vector(size_type n, const T&amp; value); 拷贝构造函数vector (const vect">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vector介绍">
+<meta property="og:url" content="http://example.com/2021/03/19/vector%E4%BB%8B%E7%BB%8D/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="vector vector定义摘要 12345template&lt;class T, class Alloc &#x3D; alloc&gt;class vector &amp;#123; &#x2F;&#x2F;&#x2F; 省略一万字&amp;#125; vector的构造函数    默认构造函数 vector(); vector(size_type n, const T&amp; value); 拷贝构造函数vector (const vect">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-19T11:49:22.000Z">
+<meta property="article:modified_time" content="2021-03-19T12:23:55.782Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="C++, STL">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-vector介绍" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/03/19/vector%E4%BB%8B%E7%BB%8D/" class="article-date">
+  <time datetime="2021-03-19T11:49:22.000Z" itemprop="datePublished">2021-03-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vector介绍
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h1><ul>
+<li><p>vector定义摘要</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>, <span class="keyword">class</span> <span class="title class_">Alloc</span> = alloc&gt;</span><br><span class="line"><span class="keyword">class</span> vector &#123;</span><br><span class="line"> <span class="comment">/// 省略一万字</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>vector的构造函数</p>
+</li>
+</ul>
+<ol>
+<li>默认构造函数 <code>vector()</code>;</li>
+<li><code>vector(size_type n, const T&amp; value)</code>;</li>
+<li>拷贝构造函数<code>vector (const vector&amp; x)</code>, <code>vector (const vector&amp; x, const allocator_type&amp; alloc)</code>;</li>
+<li>范围构造函数`vector (InputIterator first, InputIterator last,<pre><code>   const allocator_type&amp; alloc = allocator_type());`
+</code></pre>
+</li>
+<li>移动构造函数<code>vector (vector&amp;&amp; x); vector (vector&amp;&amp; x, const allocator_type&amp; alloc);</code></li>
+<li>列表构造函数`vector (initializer_list<value_type> il,<pre><code>const allocator_type&amp; alloc = allocator_type());`
+</code></pre>
+</li>
+</ol>
+<ul>
+<li>vector的元素操作</li>
+</ul>
+<ol>
+<li><code>push_back(const T&amp; x)</code>:向尾部插入元素</li>
+<li><code>pop_back()</code>:删除尾端元素</li>
+<li><code>iterator erase(iterator first, iterator last)</code>:清除[first, last)的所有元素</li>
+<li><code>iterator erase(iterator positin)</code>:清除某个位置上的元素，返回值为一个迭代器，指向函数调用删除的最后一个元素后面的元素的新位置。</li>
+<li>例子 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// erasing from vector</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">std::vector&lt;<span class="type">int</span>&gt; myvector;</span><br><span class="line"></span><br><span class="line"><span class="comment">// set some values (from 1 to 10)</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>; i&lt;=<span class="number">10</span>; i++) myvector.<span class="built_in">push_back</span>(i);</span><br><span class="line"></span><br><span class="line"><span class="comment">// erase the 6th element</span></span><br><span class="line">myvector.<span class="built_in">erase</span> (myvector.<span class="built_in">begin</span>()+<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// erase the first 3 elements:</span></span><br><span class="line"><span class="keyword">auto</span> i=myvector.<span class="built_in">erase</span> (myvector.<span class="built_in">begin</span>(),myvector.<span class="built_in">begin</span>()+<span class="number">3</span>);</span><br><span class="line">std::cout &lt;&lt; *i &lt;&lt;endl; <span class="comment">//此时的i指向值为4 的元素</span></span><br><span class="line">std::cout &lt;&lt; <span class="string">&quot;myvector contains:&quot;</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">unsigned</span> i=<span class="number">0</span>; i&lt;myvector.<span class="built_in">size</span>(); ++i)</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; myvector[i];</span><br><span class="line">std::cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">output：</span><br><span class="line"><span class="number">4</span></span><br><span class="line">myvector contains: <span class="number">4</span> <span class="number">5</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span></span><br></pre></td></tr></table></figure></li>
+<li><code>void insert(positon, n x)</code>:从positin开始，插入n个元素，初值为x</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/03/19/vector%E4%BB%8B%E7%BB%8D/" data-id="clafg5060001c5ovldjh77u5a" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-STL/" rel="tag">C++, STL</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/03/30/%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          旋转链表
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/03/16/%E5%9C%A8-h%E6%96%87%E4%BB%B6%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">在.h文件定义函数出现的错误</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-STL/" rel="tag">C++, STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MRI/" rel="tag">MRI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MRI%E9%87%8D%E5%BB%BA/" rel="tag">MRI重建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/" rel="tag">golang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 17.5px;">C++</a> <a href="/tags/C-STL/" style="font-size: 10px;">C++, STL</a> <a href="/tags/MRI/" style="font-size: 10px;">MRI</a> <a href="/tags/MRI%E9%87%8D%E5%BB%BA/" style="font-size: 10px;">MRI重建</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/golang/" style="font-size: 10px;">golang</a> <a href="/tags/leetcode/" style="font-size: 20px;">leetcode</a> <a href="/tags/linux/" style="font-size: 12.5px;">linux</a> <a href="/tags/math/" style="font-size: 15px;">math</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/11/13/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/22/tightFrameRes/">tightFrameRes</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/20/admm/">admm</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/01/linux/">linux</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/31/soft-threshold/">soft-threshold</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

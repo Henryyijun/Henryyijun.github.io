@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>重建二叉树 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="重建二叉树输入某二叉树的前序遍历和中序遍历的结果，请重建该二叉树。假设输入的前序遍 历和中序遍历的结果中都不含重复的数字。  二叉树前序遍历：[根结点 左孩子 右孩子] 二叉树中序遍历：[左孩子 根节点 右孩子]  思路：因此首先需要从二叉树的前序遍历中找到根结点，然后通过中序遍历找到左 子树和右子树。  12345678graph TD    id1((根节点))    id2((左子树))">
+<meta property="og:type" content="article">
+<meta property="og:title" content="重建二叉树">
+<meta property="og:url" content="http://example.com/2020/12/21/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="重建二叉树输入某二叉树的前序遍历和中序遍历的结果，请重建该二叉树。假设输入的前序遍 历和中序遍历的结果中都不含重复的数字。  二叉树前序遍历：[根结点 左孩子 右孩子] 二叉树中序遍历：[左孩子 根节点 右孩子]  思路：因此首先需要从二叉树的前序遍历中找到根结点，然后通过中序遍历找到左 子树和右子树。  12345678graph TD    id1((根节点))    id2((左子树))">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-21T08:57:03.000Z">
+<meta property="article:modified_time" content="2020-12-21T11:06:58.927Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="leetcode">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-重建二叉树" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/21/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/" class="article-date">
+  <time datetime="2020-12-21T08:57:03.000Z" itemprop="datePublished">2020-12-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      重建二叉树
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="重建二叉树"><a href="#重建二叉树" class="headerlink" title="重建二叉树"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/">重建二叉树</a></h2><pre><code>输入某二叉树的前序遍历和中序遍历的结果，请重建该二叉树。假设输入的前序遍
+历和中序遍历的结果中都不含重复的数字。
+
+二叉树前序遍历：[根结点 左孩子 右孩子]
+二叉树中序遍历：[左孩子 根节点 右孩子]
+
+思路：因此首先需要从二叉树的前序遍历中找到根结点，然后通过中序遍历找到左
+子树和右子树。
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    id1((根节点))</span><br><span class="line">    id2((左子树))</span><br><span class="line">    id3((右子树))</span><br><span class="line"></span><br><span class="line">    id1--&gt;id2</span><br><span class="line">    id1--&gt;id3</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code>因此只要将根节点找到，然后分别计算出左子树结点个数和右子树结点个数，然后分别递归即可。
+例如有二叉树的前序遍历和中序遍历如下所示：
+前序遍历 preorder = [3,9,20,15,7]
+中序遍历 inorder = [9,3,15,20,7]
+</code></pre>
+<ol>
+<li><p>因此一开始可以得到根节点为3，左子树为[9]，右子树为[15,20,7],如下图所示，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    id1((3))</span><br><span class="line">    id2((9))</span><br><span class="line">    id3((15,20,7))</span><br><span class="line">    id1--&gt;id2</span><br><span class="line">    id1--&gt;id3</span><br></pre></td></tr></table></figure></li>
+<li><p>然后再递归右子树，得到根节点为20, 左孩子和有孩子分别为15和7，如下图所示</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    id1((3))</span><br><span class="line">    id2((9))</span><br><span class="line">    id3((20))</span><br><span class="line">    id4((15))</span><br><span class="line">    id5((7))</span><br><span class="line">    id1--&gt;id2</span><br><span class="line">    id1--&gt;id3</span><br><span class="line">    id3--&gt;id4</span><br><span class="line">    id3--&gt;id5</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>在递归过程中需要记录根节点在中序遍历中的下标，得到根结点下标后，就可以得到<br>左右子树的结点数量大小。<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; m;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; inorder.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">    m[inorder[i]] = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>计算左右子树的结点大小<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> left = index - is;</span><br><span class="line"><span class="type">int</span> right = ie - index;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ps</td>
+<td>前序遍历左边界</td>
+</tr>
+<tr>
+<td>pe</td>
+<td>前序遍历右边界</td>
+</tr>
+<tr>
+<td>is</td>
+<td>中序遍历左边界</td>
+</tr>
+<tr>
+<td>ie</td>
+<td>中序遍历右边界</td>
+</tr>
+</tbody></table>
+<p>5.当计算完左右子树的结点大小后，需要计算左右子树边界问题</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>index</td>
+<td>根节点下标</td>
+</tr>
+<tr>
+<td>ps+1</td>
+<td>前序遍历左子树的左边界</td>
+</tr>
+<tr>
+<td>ps+left</td>
+<td>前序遍历左子树的右边界</td>
+</tr>
+<tr>
+<td>is</td>
+<td>中序遍历左子树左边界</td>
+</tr>
+<tr>
+<td>index-1</td>
+<td>中序遍历左子树右边界</td>
+</tr>
+<tr>
+<td>pe - right + 1</td>
+<td>前序遍历右子树的左边界</td>
+</tr>
+<tr>
+<td>pe</td>
+<td>前序遍历右子树的右边界</td>
+</tr>
+<tr>
+<td>index + 1</td>
+<td>中序遍历右子树左边界</td>
+</tr>
+<tr>
+<td>ie</td>
+<td>中序遍历右子树右边界</td>
+</tr>
+</tbody></table>
+<ol start="6">
+<li>代码<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">buildTree</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; preorder, vector&lt;<span class="type">int</span>&gt;&amp; inorder)</span> </span>&#123;</span><br><span class="line">        map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; m;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; inorder.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            m[inorder[i]] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        TreeNode* root = <span class="built_in">build</span>(preorder, <span class="number">0</span>, preorder.<span class="built_in">size</span>() - <span class="number">1</span>, inorder, <span class="number">0</span>, inorder.<span class="built_in">size</span>() - <span class="number">1</span>, m);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">TreeNode* <span class="title">build</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; pre, <span class="type">int</span> ps, <span class="type">int</span> pe, vector&lt;<span class="type">int</span>&gt;&amp; inorder, <span class="type">int</span> is, <span class="type">int</span> ie, map&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&amp; m)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (ps &gt; pe) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="type">int</span> value = pre[ps];</span><br><span class="line">        TreeNode* root = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(value);</span><br><span class="line">        <span class="keyword">if</span> (ps == pe) &#123;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="type">int</span> index = m[value];</span><br><span class="line">            <span class="type">int</span> left = index - is;</span><br><span class="line">            <span class="type">int</span> right = ie - index;</span><br><span class="line">            root-&gt;left = <span class="built_in">build</span>(pre, ps + <span class="number">1</span>, ps + left, inorder, is, index - <span class="number">1</span>, m);</span><br><span class="line">            root-&gt;right = <span class="built_in">build</span>(pre, pe - right + <span class="number">1</span>, pe, inorder, index + <span class="number">1</span>, ie, m);</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/21/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/" data-id="clafg506d00245ovl22dzhcq0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/12/25/go/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          go
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/12/20/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E6%9F%A5%E6%89%BE/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">二维数组查找</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-STL/" rel="tag">C++, STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MRI/" rel="tag">MRI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MRI%E9%87%8D%E5%BB%BA/" rel="tag">MRI重建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/" rel="tag">golang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 17.5px;">C++</a> <a href="/tags/C-STL/" style="font-size: 10px;">C++, STL</a> <a href="/tags/MRI/" style="font-size: 10px;">MRI</a> <a href="/tags/MRI%E9%87%8D%E5%BB%BA/" style="font-size: 10px;">MRI重建</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/golang/" style="font-size: 10px;">golang</a> <a href="/tags/leetcode/" style="font-size: 20px;">leetcode</a> <a href="/tags/linux/" style="font-size: 12.5px;">linux</a> <a href="/tags/math/" style="font-size: 15px;">math</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/11/13/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/22/tightFrameRes/">tightFrameRes</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/20/admm/">admm</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/01/linux/">linux</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/31/soft-threshold/">soft-threshold</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

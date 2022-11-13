@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>soft-threshold | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="软阈值[TOC] 1.2 das 根据 proximal operator 的定义，一个函数 f(x) 的 proximal operator 如下公式所示：  $$prox_{\lambda f} &#x3D; argmin(f(x) + \frac{1}{2 \rho}\Vert x- v\Vert^2_2)$$  当函数 f(x) &#x3D; |x| 时，f(x) 的 proximal operator 此时">
+<meta property="og:type" content="article">
+<meta property="og:title" content="soft-threshold">
+<meta property="og:url" content="http://example.com/2021/03/31/soft-threshold/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="软阈值[TOC] 1.2 das 根据 proximal operator 的定义，一个函数 f(x) 的 proximal operator 如下公式所示：  $$prox_{\lambda f} &#x3D; argmin(f(x) + \frac{1}{2 \rho}\Vert x- v\Vert^2_2)$$  当函数 f(x) &#x3D; |x| 时，f(x) 的 proximal operator 此时">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-31T06:26:47.000Z">
+<meta property="article:modified_time" content="2021-03-31T08:05:26.478Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="math">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-soft-threshold" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/03/31/soft-threshold/" class="article-date">
+  <time datetime="2021-03-31T06:26:47.000Z" itemprop="datePublished">2021-03-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      soft-threshold
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="软阈值"><a href="#软阈值" class="headerlink" title="软阈值"></a>软阈值</h1><p>[TOC]</p>
+<h2 id="1-2-das"><a href="#1-2-das" class="headerlink" title="1.2 das"></a>1.2 das</h2><ul>
+<li>根据 <code>proximal operator</code> 的定义，一个函数 <code>f(x)</code> 的 <code>proximal operator</code> 如下公式所示：</li>
+</ul>
+<p>$$<br>prox_{\lambda f} = argmin(f(x) + \frac{1}{2 \rho}\Vert x- v\Vert^2_2)<br>$$</p>
+<ul>
+<li>当函数 <code>f(x) = |x|</code> 时，<code>f(x)</code> 的 <code>proximal operator</code> 此时为软阈值，为：</li>
+</ul>
+<p>$$<br>prox_{\lambda f} =<br>\begin{cases}<br>v-\lambda \quad v &gt; \lambda  \<br>0 \quad \quad \quad |v| \le \lambda \<br>v + \lambda \quad v &lt; -\lambda<br>\end{cases}<br>$$</p>
+<ul>
+<li>证明：</li>
+</ul>
+<ol>
+<li><p>当 $v \in [-\lambda, \lambda]$, 通过 $0 \in \partial(\lambda|x|) + x -v$,可以得到：<br>$$<br>\begin{aligned}<br>&amp;x = 0, \quad \partial(\lambda|x|) + x -v = 0 , \quad \<br>&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = \lambda + x -v &gt; 0 \<br>&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = -\lambda + x -v &lt; 0 \<br>&amp;so \quad prox_{\lambda f}(v) = 0<br>\end{aligned}<br>$$</p>
+</li>
+<li><p> 当 $v &gt; \lambda$, 通过 $0 \in \partial(\lambda|x|) + x -v$,可以得到：<br>$$<br>\begin{aligned}<br>&amp;x = 0, \quad \partial(\lambda|x|) + x -v &lt; 0 , \quad \<br>&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = \lambda + x -v = 0 \<br>&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = -\lambda + x -v &lt; 0 \<br>&amp;so \quad prox_{\lambda f}(v) =  v- \lambda<br>\end{aligned}<br>$$</p>
+</li>
+<li><p> 当 $v  &lt; -\lambda$, 通过 $0 \in \partial(\lambda|x|) + x -v$,可以得到：<br>$$<br>\begin{aligned}<br>&amp;x = 0, \quad \partial(\lambda|x|) + x -v &gt; 0 , \quad \<br>&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = \lambda + x -v &gt; 0 \<br>&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = -\lambda + x -v = 0 \<br>&amp;so \quad prox_{\lambda f}(v) =  v+ \lambda<br>\end{aligned}<br>$$</p>
+</li>
+<li><p>软阈值另一种等价形式<br>$$<br>prox_{\lambda f}(v) = sign(v) max{|v| - \lambda, 0}<br>$$</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/03/31/soft-threshold/" data-id="clafg505w00135ovl9qowfw2c" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/" rel="tag">math</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/04/01/linux/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          linux
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/03/30/%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">旋转链表</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-STL/" rel="tag">C++, STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MRI/" rel="tag">MRI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MRI%E9%87%8D%E5%BB%BA/" rel="tag">MRI重建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/" rel="tag">golang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 17.5px;">C++</a> <a href="/tags/C-STL/" style="font-size: 10px;">C++, STL</a> <a href="/tags/MRI/" style="font-size: 10px;">MRI</a> <a href="/tags/MRI%E9%87%8D%E5%BB%BA/" style="font-size: 10px;">MRI重建</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/golang/" style="font-size: 10px;">golang</a> <a href="/tags/leetcode/" style="font-size: 20px;">leetcode</a> <a href="/tags/linux/" style="font-size: 12.5px;">linux</a> <a href="/tags/math/" style="font-size: 15px;">math</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/11/13/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/22/tightFrameRes/">tightFrameRes</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/20/admm/">admm</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/01/linux/">linux</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/31/soft-threshold/">soft-threshold</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

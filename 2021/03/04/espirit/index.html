@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>espirit | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ESPIRiT - An Eigenvalue Approach to Autocalibrating Parallel MRI1 THEORY1.1SENSE&amp;ensp;&amp;ensp; 在MRI重建中，SENSE类方法将MRI重建视作为一个线性逆问题。假设m表示一张图像，令$S_i$ 表示第i个线圈的敏感度矩阵(对角矩阵),$F$表示离散傅里叶变换，$P$表示采样矩阵。则第i个线圈得到的数据可以表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="espirit">
+<meta property="og:url" content="http://example.com/2021/03/04/espirit/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ESPIRiT - An Eigenvalue Approach to Autocalibrating Parallel MRI1 THEORY1.1SENSE&amp;ensp;&amp;ensp; 在MRI重建中，SENSE类方法将MRI重建视作为一个线性逆问题。假设m表示一张图像，令$S_i$ 表示第i个线圈的敏感度矩阵(对角矩阵),$F$表示离散傅里叶变换，$P$表示采样矩阵。则第i个线圈得到的数据可以表">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/03/08/OaNkGrSzJKZADVb.png">
+<meta property="og:image" content="https://i.loli.net/2021/03/08/aPNvjHZbIAgxSym.png">
+<meta property="og:image" content="https://i.loli.net/2021/03/08/uXNIlDFy2h6kYe3.png">
+<meta property="og:image" content="https://i.loli.net/2021/03/22/3RKe5hN1rdlpZSo.png">
+<meta property="og:image" content="https://i.loli.net/2021/03/22/D3fVXc8QwIlYRHs.png">
+<meta property="og:image" content="https://i.loli.net/2021/03/22/vnyrdfjXYiVCsa9.png">
+<meta property="article:published_time" content="2021-03-04T11:25:52.000Z">
+<meta property="article:modified_time" content="2021-03-22T08:38:20.467Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="MRI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/03/08/OaNkGrSzJKZADVb.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-espirit" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/03/04/espirit/" class="article-date">
+  <time datetime="2021-03-04T11:25:52.000Z" itemprop="datePublished">2021-03-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      espirit
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ESPIRiT-An-Eigenvalue-Approach-to-Autocalibrating-Parallel-MRI"><a href="#ESPIRiT-An-Eigenvalue-Approach-to-Autocalibrating-Parallel-MRI" class="headerlink" title="ESPIRiT - An Eigenvalue Approach to Autocalibrating Parallel MRI"></a>ESPIRiT - An Eigenvalue Approach to Autocalibrating Parallel MRI</h1><h2 id="1-THEORY"><a href="#1-THEORY" class="headerlink" title="1 THEORY"></a>1 THEORY</h2><h3 id="1-1SENSE"><a href="#1-1SENSE" class="headerlink" title="1.1SENSE"></a>1.1SENSE</h3><p>&ensp;&ensp; 在MRI重建中，SENSE类方法将MRI重建视作为一个线性逆问题。假设m表示一张图像，令$S_i$ 表示第i个线圈的敏感度矩阵(对角矩阵),$F$表示离散傅里叶变换，$P$表示采样矩阵。则第i个线圈得到的数据可以表示为:<br>$$<br>y_i = PFS_i m  \quad (1)<br>$$<br>当$S_i$已知时，该问题可以直接通过最小二乘法求解。</p>
+<h3 id="1-2-GRAPPPA"><a href="#1-2-GRAPPPA" class="headerlink" title="1.2 GRAPPPA"></a>1.2 GRAPPPA</h3><p>&ensp;&ensp; GRAPPA是一种逐线圈自动校准的重建算法，该算法将重建过程视作为一个k空间的插值过程，将未获得k空间数据通过已获得的数据进行线性组合得到。</p>
+<p>&ensp;&ensp;为了描述GRAPPA算法，定义一些符号</p>
+<ul>
+<li>$R_r$ :该算子表示从位置r周围的所有网格中选择一个k空间块。</li>
+<li>$P_r$ :仅从k空间块中选择采集样本的局部采样模式。</li>
+<li>$y$ :向量形式的多线圈k空间网格，未获取的数据被零填充。</li>
+<li>$x_i$ :第i个线圈中重建后得到的数据</li>
+<li>$x_i(r)$ :第i个线圈中，位置r的重建数据</li>
+<li>$g_{ri}$ :GRAPPA kernel</li>
+</ul>
+<p>&ensp;&ensp;在GRAPPA重建算法中，在位置r中未采样的数据由以下式子得到：<br>$$<br>x_i(r)=(P_rR_ry)^Tg_{ri} \quad (2)<br>$$<br>因此当GRAPPA kernel未知，$x_i$已知时，我们可以通过求解(2)得到$g_{ri}$。一般情况下，在得到的k空间数据中有一块全采样的数据，位于数据中心，这块数据被称为校准数据(calibration data),通过该数据得到矩阵被称为标准矩阵(calibration matrix)，记为A。如Figure 1，左上角为得到的k空间数据，该数据中央黑色部分为全采样，即为标准矩阵(上中图)。上右图是校准数据得到的校准矩阵，该矩阵通过设置一个窗口(3*3),然后将窗口中的数据拉成一行向量，即可以得到校准矩阵的一行向量，再通过滑动该窗口，不断得到校准矩阵的数据。</p>
+<p>&ensp;&ensp; 为了得到GRAPPA kernel，使用校准矩阵改写式子(2),</p>
+<p>$$<br>\begin{aligned}<br>x_i(r)&amp;=(P_rR_ry)^Tg_{ri} \<br>          &amp;=y^TR_r^TP_r^Tg_{ri}\<br>          &amp;=(R_ry)^TP_r^Tg_{ri} \<br>          &amp;=AP_r^Tg_{ri}<br>\end{aligned}<br>$$<br>若用$y_i^{AC}$表示第i个线圈得到的校准数据，则可以得到式子(3)<br>$$<br>y_i^{AC} = AP_r^Tg_{ri} \quad (3)<br>$$<br>通过求解式子(3), 可以得到未知的$g_{ri}$，一般通过Tikhonov正则化最小二乘法进行求解。<br>$$<br>argmin_{g_{ri}} \Vert AP_r^T-y_i^{AC} \Vert^2<br>$$</p>
+<p>通过构造，矩阵A的一个列是$y_i^{AC}$，如Figure 1 中上中图和上右图所以，橙色部分的一块一矩阵即为矩阵A的第五列。因为可以将$y_i^{AC}$写成 $Ae_i$,$e_i$表示某个位置为1，其他为0为的向量，用于选择矩阵的第i列。因此通过该性质，重写式子(3),可以写成：</p>
+<p>$$<br>\begin{aligned}<br>0&amp;=AP_r^Tg_{ri}-y_i^{AC}\<br>&amp;=AP_r^Tg_{ri}-Ae_i \<br>&amp;=A(P_r^Tg_{ri} - e_i) \quad (4)<br>\end{aligned}<br>$$<br>从式子(4)中可以发现，$P_r^Tg_{ri} - e_i$是矩阵A的零空间向量。零空间的存在意味着A中存在冗余，从而意味着k空间块之间的相关性，这可以用来合成丢失的样本。由于零空间的特殊性，因此我们可以直接分析零空间。</p>
+<p><img src="https://i.loli.net/2021/03/08/OaNkGrSzJKZADVb.png" alt="Figure 1"></p>
+<h3 id="1-3-SVD和零空间重建"><a href="#1-3-SVD和零空间重建" class="headerlink" title="1.3 SVD和零空间重建"></a>1.3 SVD和零空间重建</h3><p>&ensp;&ensp; 使用奇异值分解的方法分析校准矩阵A，奇异值分解的形式为：<br>$$<br>A=U\Sigma V^H \quad (5)<br>$$<br>矩阵V的列是矩阵行空间的基，因此可以将矩阵V分成$V_{\bot}$和$V_{\Vert}$,分别span A的零空间和行空间。从Figure 2 中可以看出，对校准矩阵矩阵进行奇异值分解后，我们可以利用$V_{\Vert}$的数据推出未采样的数据。</p>
+<p>&ensp;&ensp; 给定欠采样的k空间网格，重构x的每个k空间块必须满足两个约束:<br>$$<br>\begin{aligned}<br>V_{\Vert}V_{\Vert}^HR_rx &amp;= R_rx  \quad or \quad V_{\bot}^HR_rx = 0 \quad &amp;(6a)\<br>P_rR_rx&amp;=P_rR_rx \quad &amp;(6b)<br>\end{aligned}<br>$$<br>(6a)是与校准的一致性，(6b)是与数据采集的一致性。在最小二乘意义上解释(形式上超定的)零空间约束集产生了正规方程</p>
+<p>$$<br>\sum_{r}R_r^HV_{\bot}V_{\bot}^HR_rx = 0 \quad (7)<br>$$</p>
+<p>式子(7)进一步可以写成</p>
+<p>$$<br>\sum_{r}R_r^H (I- V_{\Vert}V_{\Vert}^H) R_rx = 0 \quad (8)<br>$$</p>
+<p>$$<br>M^{-1}\sum_{r}R_r^H V_{\Vert}V_{\Vert}^H R_rx = 0 \quad (9)<br>$$<br>其中式子(9)中的M表示$\sum_{r}R_r^HR_r$。以矩阵形式重写第一个约束，并合并第二个约束的所有相同的方程，得到<br>$$<br>\begin{aligned}<br>\mathcal{W}x &amp;=x  \quad (10a)\<br>\mathcal{P}x &amp;= \mathcal{P}y \quad (10b)<br>\end{aligned}<br>$$</p>
+<p><img src="https://i.loli.net/2021/03/08/aPNvjHZbIAgxSym.png" alt="Figure 2"></p>
+<h3 id="1-4-Sensitivity-map-as-an-eigenvalue-problem"><a href="#1-4-Sensitivity-map-as-an-eigenvalue-problem" class="headerlink" title="1.4 Sensitivity map as an eigenvalue problem"></a>1.4 Sensitivity map as an eigenvalue problem</h3><p>&ensp; &ensp; 假设x是W-I的零空间的解，则满足$Wx=x$。如果我们用线圈灵敏度加权的原始图像的k空间表示x，得到<br>$$<br>x=FSm \quad (11)<br>$$<br>其中，$S=[S_1,S_2,…,S_N]^T$ 是堆叠线圈灵敏度的向量，则等式(10a)可以写为：<br>$$<br>WFSm = FSm \quad (12)<br>$$<br>两边都进行傅里叶逆变换可以得到，<br>$$<br>F^{-1}WFSm=Sm \quad (13)<br>$$<br>通过式子(13)可以看出，1是矩阵$F^{-1}WF$的特征值，特征向量是$Sm$.因为算子W是半正定矩阵值卷积，所以它在图像域中解耦成点态半正定矩阵运算:<br>$$<br>F^{-1}\mathcal{W}F|_q=\mathcal{G_q} \quad (14)<br>$$<br>算子W的特征值分解被简化为求解图像空间中$G_q$每个位置q的特征值分解。计算$G_q$的过程如Figure 4所示。定义在位置q上的敏感度$\vec{s}(q)=[s_1(q),…,s_N(q)]^T$,则等式(13)可以推出：<br>$$<br>\mathcal{G_q}\vec{s}(q)m(q)=\vec{s_r}m(q) \quad (15)<br>$$<br>假设$m(q)$不等于0，则可以得到：<br>$$<br>\mathcal{G_q}\vec{s}(q)=\vec{s_q} \quad (15)<br>$$<br>因此，显式灵敏度图可以通过所有Gq的特征值分解找到，只选择对应于特征值” =1 “的特征向量<br><img src="https://i.loli.net/2021/03/08/uXNIlDFy2h6kYe3.png" alt="Figure 4"></p>
+<h3 id="1-5-ESPIRiT-Implementation-Using-Soft-SENSE"><a href="#1-5-ESPIRiT-Implementation-Using-Soft-SENSE" class="headerlink" title="1.5 ESPIRiT : Implementation Using Soft SENSE"></a>1.5 ESPIRiT : Implementation Using Soft SENSE</h3><p>&ensp;&ensp;在计算一组灵敏度后，可以执行标准的SENSE重建。在某些情况下，采集中的误差会导致出现特征值为“=1”的多个特征向量或小于1的附加特征值，这表明信号分量不能用严格的SENSE模式来解释。这推动了重建过程的扩展:不是使用一组单一的灵敏度图，而是使用等式(1)扩展到“软”SENSE重建，其使用基于多个图像分量$m^j$和多组映射$S^j$的信号的松弛模型:</p>
+<p>$$<br>y_i=\mathcal{P} \mathcal{F}\sum_{j=1}^{M}S_i^jm^j \quad (16)<br>$$<br>如上所述，重建图像的求解为一个优化问题，并且使用正则化方法，具体的形式如下所示：</p>
+<p>$$<br>J(m^1,…,m^M)=\sum_{i=1}^{N}\Vert y_i-\mathcal{P} \mathcal{F}\sum_{j=1}^{M}S_i^jm^j \Vert^2_2 + \alpha\sum_{j=1}^{M}\mathcal{Qm^j}  \quad (17)<br>$$</p>
+<h2 id="2-code-Implementation-demo-ESPIRIT-l1-recon"><a href="#2-code-Implementation-demo-ESPIRIT-l1-recon" class="headerlink" title="2 code Implementation(demo_ESPIRIT_l1_recon)"></a>2 code Implementation(demo_ESPIRIT_l1_recon)</h2><h3 id="2-1-construct-Calibration-matrix-A-and-V-Vert"><a href="#2-1-construct-Calibration-matrix-A-and-V-Vert" class="headerlink" title="2.1 construct Calibration matrix A and $V_{\Vert}$"></a>2.1 construct Calibration matrix A and $V_{\Vert}$</h3><p>&ensp;&ensp;构造校准矩阵A之前，首先必须找到ACS，通过使用函数crop寻找校准区域<code>calib</code>，然后通过<code>calib</code>构造校准矩阵。</p>
+<p>&ensp;&ensp;各类函数解释说明</p>
+<ul>
+<li><code>im2row(im, winSize)</code>:该函数将滑动窗口的数据拉成行向量，然后不用滑动窗口，得到一个Hankel矩阵。如<code>Figure 5</code>所示</li>
+</ul>
+<p><img src="https://i.loli.net/2021/03/22/3RKe5hN1rdlpZSo.png" alt="Figure 5"></p>
+<ul>
+<li>函数<code>dat2Kernel</code>:该函数接受两个参数，分别是<code>data</code>和<code>kSize</code>，表示校准数据和<code>kernel</code>的大小。该函数首先通过调用im2row函数得到临时变量<code>tmp</code>，然后将<code>tmp reshape</code>成二维矩阵，对A矩阵进行<code>SVD</code>分解，对应公式(5)。进行分解之后，将A的右奇异向量取出，<code>reshape</code>成一个一个的kernel。变换过程如下图所示：<br><img src="https://i.loli.net/2021/03/22/D3fVXc8QwIlYRHs.png" alt="Figure 6"><br><img src="https://i.loli.net/2021/03/22/vnyrdfjXYiVCsa9.png" alt="Figure 7"></li>
+</ul>
+<ul>
+<li><code>[EigenVecs, EigenVals] = kernelEig(kernel, imSize)</code>:还函数用于计算特征向量和特征值。<code>kernel</code>是上一个函数<code>dat2Kernel</code>得到的结果并且去掉一些奇异值特别小的右奇异向量。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/03/04/espirit/" data-id="clafg505c000d5ovl0f8z0mvu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MRI/" rel="tag">MRI</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/03/08/%E4%BF%84%E7%BD%97%E6%96%AF%E5%A5%97%E5%A8%83/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          俄罗斯套娃
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/01/20/%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E7%BB%93%E7%82%B9/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">倒数第k个结点</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-STL/" rel="tag">C++, STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MRI/" rel="tag">MRI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MRI%E9%87%8D%E5%BB%BA/" rel="tag">MRI重建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/" rel="tag">golang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 17.5px;">C++</a> <a href="/tags/C-STL/" style="font-size: 10px;">C++, STL</a> <a href="/tags/MRI/" style="font-size: 10px;">MRI</a> <a href="/tags/MRI%E9%87%8D%E5%BB%BA/" style="font-size: 10px;">MRI重建</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/golang/" style="font-size: 10px;">golang</a> <a href="/tags/leetcode/" style="font-size: 20px;">leetcode</a> <a href="/tags/linux/" style="font-size: 12.5px;">linux</a> <a href="/tags/math/" style="font-size: 15px;">math</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/11/13/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/22/tightFrameRes/">tightFrameRes</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/20/admm/">admm</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/01/linux/">linux</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/31/soft-threshold/">soft-threshold</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

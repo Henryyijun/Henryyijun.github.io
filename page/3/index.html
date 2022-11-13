@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-字符串压缩" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/15/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8E%8B%E7%BC%A9/" class="article-date">
+  <time datetime="2020-12-15T06:40:32.000Z" itemprop="datePublished">2020-12-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/15/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8E%8B%E7%BC%A9/">字符串压缩</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="字符串压缩"><a href="#字符串压缩" class="headerlink" title="字符串压缩"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/compress-string-lcci/">字符串压缩</a></h1><pre><code>字符串压缩。利用字符重复出现的次数，编写一种方法，实现基本的字符串压缩功能。比如，字符串aabcccccaaa会变为a2b1c5a3。若“压缩”后的字符串没有变短，则返回原先的字符串。你可以假设字符串中只包含大小写英文字母(a至z)。
+输入：&quot;aabcccccaaa&quot;
+输出：&quot;a2b1c5a3&quot;
+</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">compressString</span><span class="params">(string S)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (S == <span class="string">&quot;&quot;</span>) <span class="keyword">return</span> S;</span><br><span class="line">        string result;</span><br><span class="line">        <span class="type">int</span> count = <span class="number">1</span>;</span><br><span class="line">        <span class="type">char</span> c = S[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">1</span>; i &lt; S.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (c == S[i]) &#123;</span><br><span class="line">                count++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                result.<span class="built_in">push_back</span>(c);</span><br><span class="line">                result += <span class="built_in">to_string</span>(count);</span><br><span class="line">                count = <span class="number">1</span>;</span><br><span class="line">                c = S[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        result.<span class="built_in">push_back</span>(c);</span><br><span class="line">        result += <span class="built_in">to_string</span>(count);</span><br><span class="line">        <span class="keyword">return</span> result.<span class="built_in">size</span>() &lt; S.<span class="built_in">size</span>() ? result : S;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/15/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8E%8B%E7%BC%A9/" data-id="clafg5067001s5ovlgq9hhrgi" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-异位词分组" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/14/%E5%BC%82%E4%BD%8D%E8%AF%8D%E5%88%86%E7%BB%84/" class="article-date">
+  <time datetime="2020-12-14T13:00:00.000Z" itemprop="datePublished">2020-12-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/14/%E5%BC%82%E4%BD%8D%E8%AF%8D%E5%88%86%E7%BB%84/">异位词分组</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="字母异位词分组"><a href="#字母异位词分组" class="headerlink" title="字母异位词分组"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/group-anagrams/">字母异位词分组</a></h1><pre><code>给定一个字符串数组，将字母异位词组合在一起。字母异位词指字母相同，但排列不同的字符串。
+输入: [&quot;eat&quot;, &quot;tea&quot;, &quot;tan&quot;, &quot;ate&quot;, &quot;nat&quot;, &quot;bat&quot;]
+输出:
+[
+[&quot;ate&quot;,&quot;eat&quot;,&quot;tea&quot;],
+[&quot;nat&quot;,&quot;tan&quot;],
+[&quot;bat&quot;]
+]
+</code></pre>
+<p><strong>思路</strong>：调库就完了</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; <span class="built_in">groupAnagrams</span>(vector&lt;string&gt;&amp; strs) &#123;</span><br><span class="line">        vector&lt;vector&lt;string&gt;&gt; result;</span><br><span class="line">        map&lt;string, vector&lt;<span class="type">int</span>&gt;&gt; m;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; strs.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            string s = strs[i];</span><br><span class="line">            <span class="built_in">sort</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>());</span><br><span class="line">            vector&lt;<span class="type">int</span>&gt;&amp; t = m[s];</span><br><span class="line">            t.<span class="built_in">push_back</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> i = m.<span class="built_in">begin</span>(); i != m.<span class="built_in">end</span>(); i++) &#123;</span><br><span class="line">            vector&lt;string&gt; temp;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span>&amp; index : i-&gt;second) &#123;</span><br><span class="line">                temp.<span class="built_in">push_back</span>(strs[index]);</span><br><span class="line">            &#125;</span><br><span class="line">            result.<span class="built_in">push_back</span>(temp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/14/%E5%BC%82%E4%BD%8D%E8%AF%8D%E5%88%86%E7%BB%84/" data-id="clafg5068001u5ovlg08n6c10" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mergeKLists" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/14/mergeKLists/" class="article-date">
+  <time datetime="2020-12-14T12:58:00.000Z" itemprop="datePublished">2020-12-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/14/mergeKLists/">合并k个有序链表</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="合并K个升序链表"><a href="#合并K个升序链表" class="headerlink" title="合并K个升序链表"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/merge-k-sorted-lists/">合并K个升序链表</a></h1><pre><code>给你一个链表数组，每个链表都已经按升序排列。请你将所有链表合并到一个升序链表中，返回合并后的链表。
+
+输入：lists = [[1,4,5],[1,3,4],[2,6]]
+输出：[1,1,2,3,4,4,5,6]
+解释：链表数组如下：
+[
+1-&gt;4-&gt;5,
+1-&gt;3-&gt;4,
+2-&gt;6
+]
+将它们合并到一个有序链表中得到。
+1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6
+</code></pre>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><pre><code>使用分治法思想，假设有l1,l2,l3,l4四个链表，首先l1和l2合并成为l12, l3和l4合并成l34，然后l12和l34合并成l。
+具体的代码如下所示：
+</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeKLists</span><span class="params">(vector&lt;ListNode*&gt;&amp; lists)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">merge</span>(lists, <span class="number">0</span>, lists.<span class="built_in">size</span>() - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">ListNode* <span class="title">merge</span><span class="params">(vector&lt;ListNode*&gt;&amp; lists, <span class="type">int</span> l, <span class="type">int</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">            <span class="keyword">return</span> lists[l];</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (l &gt; r) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="type">int</span> mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">mergeTwoLists</span>(<span class="built_in">merge</span>(lists, l, mid), <span class="built_in">merge</span>(lists, mid + <span class="number">1</span>, r));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line">        ListNode* head = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">0</span>);</span><br><span class="line">        ListNode* tail = head;</span><br><span class="line">        <span class="keyword">while</span> (l1 &amp;&amp; l2) &#123;</span><br><span class="line">            <span class="keyword">if</span> (l1-&gt;val &lt;= l2-&gt;val) &#123;</span><br><span class="line">                tail-&gt;next = l1;</span><br><span class="line">                l1 = l1-&gt;next;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                tail-&gt;next = l2;</span><br><span class="line">                l2 = l2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            tail = tail-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        tail-&gt;next = (l1 == <span class="literal">NULL</span> ? l2 : l1);</span><br><span class="line">        <span class="keyword">return</span> head-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/14/mergeKLists/" data-id="clafg505t000w5ovl4wa51m1v" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-unorder_map" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/14/unorder_map/" class="article-date">
+  <time datetime="2020-12-14T12:58:00.000Z" itemprop="datePublished">2020-12-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/14/unorder_map/">unorder_map</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="unorder-map"><a href="#unorder-map" class="headerlink" title="unorder_map"></a>unorder_map</h1><p>unordered_map，它是一个关联容器，内部采用的是hash表结构，拥有快速检索的功能。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/14/unorder_map/" data-id="clafg505z00195ovlaimw21ki" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/" rel="tag">c++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-c++11" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/14/c++11/" class="article-date">
+  <time datetime="2020-12-14T06:18:00.000Z" itemprop="datePublished">2020-12-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/14/c++11/">c++ 11 新标准</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="C-11"><a href="#C-11" class="headerlink" title="C++11"></a>C++11</h1><h2 id="1-新类型"><a href="#1-新类型" class="headerlink" title="1 新类型"></a>1 新类型</h2><pre><code>1.1 c++11 新增了类型long long 和unsigned long long，支持64位整型。
+</code></pre>
+<h2 id="2-初始化方式"><a href="#2-初始化方式" class="headerlink" title="2 初始化方式"></a>2 初始化方式</h2><pre><code>2.1 初始化方式，使用初始化列表时，可以添加等号(=)，也可以不用： int x = &#123;5&#125;, double y&#123;5&#125;。初始化列表可用于new 表达式中， int *arr = new int[5]&#123;2 0 0 0 0&#125;。
+
+2.2 c++ 11 提供了std::initializer_list,可以用于作构造函数的参数，如：
+vector&lt;int&gt; a1&#123;10&#125;;
+vector&lt;int&gt; a2&#123;10&#125;;
+</code></pre>
+<h2 id="3-声明"><a href="#3-声明" class="headerlink" title="3 声明"></a>3 声明</h2><pre><code>3.1 关键字auto，用于实现自动类型推断，要求进行显示初始化，例如：
+auto m = 112; // type int
+auto pt = &amp;m; // pt is type int*
+
+3.2 关键字decltype,将变量的类型声明为表达式指定的类型。下面的语句含义是：让y的类型与x的相同，x是一个表达式。
+decltype(x) y
+例如：
+double x; int n;
+decltype(x*n) q; //将q的里欸选哪个声明为与x*n相同,double
+
+3.3 返回类型后置
+c++11 新增一种函数声明语法：在函数名和参数列表后面指定返回类型：
+double f1(double, int); // tradictional syntax
+auto f2(double, int) -&gt; double;
+例如：
+template&lt;typename T, typename U&gt;
+auto eff(T t, U u) -&gt; decltype(T*U)&#123;&#125;
+解决了在编译器遇到eff的参数列表前，T和U都还不在作用域内，因此必须在参数列表后使用decltype。
+
+3.4 模板别名: using =
+c++ 11提供了另一种新的创建别名的语法：
+using itType = std::vector&lt;std::string&gt;::iterator;
+</code></pre>
+<h2 id="4-Lambda-函数"><a href="#4-Lambda-函数" class="headerlink" title="4 Lambda 函数"></a>4 Lambda 函数</h2><pre><code>语法：
+[capture list] (params list) mutable exception-&gt; return type &#123; function body &#125;
+capture list：用于捕获外部变量
+param list:参数列表
+return type: 返回类型
+mutable：用来说用是否可以修改捕获的变量
+exception：异常设定
+常见写法：
+[capture list] (params list) -&gt; return type &#123; function body &#125;
+[capture list] (params list)&#123; function body &#125;
+[capture list] &#123; function body &#125;
+</code></pre>
+<h2 id="5-右值引用（2021-3-5更新）"><a href="#5-右值引用（2021-3-5更新）" class="headerlink" title="5 右值引用（2021-3-5更新）"></a>5 右值引用（2021-3-5更新）</h2><h2 id="6-placement-new"><a href="#6-placement-new" class="headerlink" title="6 placement new"></a>6 placement new</h2><ul>
+<li><p>placement new 是C++中new运算符的变体。一个普通的new运算符主要做了两件事：1)分配内存空间(内存地址由系统分配)；2)在已分配的内存空间上构造对象。</p>
+</li>
+<li><p>而placement new则将这两件事分开，我们可以在指定的内存空间上进行构造对象。</p>
+</li>
+<li><p>语法</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> (address) (type) initializer</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/14/c++11/" data-id="clafg505300045ovl18xn963h" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-commonNode" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/12/commonNode/" class="article-date">
+  <time datetime="2020-12-12T05:35:05.000Z" itemprop="datePublished">2020-12-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/12/commonNode/">commonNode</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="输入两个链表，找出它们的第一个公共节点。"><a href="#输入两个链表，找出它们的第一个公共节点。" class="headerlink" title="输入两个链表，找出它们的第一个公共节点。"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/liang-ge-lian-biao-de-di-yi-ge-gong-gong-jie-dian-lcof/">输入两个链表，找出它们的第一个公共节点。</a></h1><p><img src="https://i.loli.net/2021/03/05/kLriNCpxcoh76QU.png" alt="1.PNG"><br><strong>思路</strong>：首先算出链表A和链表B各自的长度，然后作差求得两者长度之差，假设差为k，让长的链表先走k步，然后两个链表同时走，直到遇到公共节点。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode *<span class="title">getIntersectionNode</span><span class="params">(ListNode *headA, ListNode *headB)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> m = <span class="built_in">length</span>(headA);</span><br><span class="line">        <span class="type">int</span> n = <span class="built_in">length</span>(headB);</span><br><span class="line">        <span class="keyword">if</span> (m &gt;= n) &#123;</span><br><span class="line">            <span class="type">int</span> k = m - n;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">getCommon</span>(headA, headB, k);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="type">int</span> k = n - m;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">getCommon</span>(headB, headA, k);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">ListNode* <span class="title">getCommon</span><span class="params">(ListNode* headA, ListNode* headB, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">        ListNode* p = headA;</span><br><span class="line">        <span class="keyword">for</span> (; p &amp;&amp; i &lt; k; i++, p = p-&gt;next);</span><br><span class="line">        <span class="keyword">while</span> ((p &amp;&amp; headB) &amp;&amp; (p != headB)) &#123;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">            headB = headB-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">length</span><span class="params">(ListNode* node)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> length = <span class="number">0</span>;</span><br><span class="line">        ListNode* p = node;</span><br><span class="line">        <span class="keyword">while</span> (p) &#123;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">            length++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> length;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/12/commonNode/" data-id="clafg505600065ovl6qqh1xez" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-subArraySum" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/06/subArraySum/" class="article-date">
+  <time datetime="2020-12-06T12:53:56.000Z" itemprop="datePublished">2020-12-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/06/subArraySum/">subArraySum</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="连续子数组的最大和"><a href="#连续子数组的最大和" class="headerlink" title="连续子数组的最大和"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof/">连续子数组的最大和</a></h1><p>输入一个整型数组，数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。</p>
+<p><strong>设dp[i]是数组中以第i个数结尾的和，则dp[i] 与dp[i-1]有关，若dp[i-1]小于0，则dp[i]=num[i]；否则dp[i]=dp[i-1]+num[i]，因此有动态方程：</strong></p>
+<p>$$<br>dp[i] = num[i]+ max(dp[i],0)<br>$$</p>
+<p><strong>然后求dp数组中的最大值，即可得到子数组的最大和</strong></p>
+<p><strong>然而我们需要的dp数组中的最大值，不需要其他值，因此dp数组中其他数是多余的，只需要一个变量即可，具体代码如下所示，此时时间复杂度为O(n),空间复杂度为O(1)。</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxSubArray</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> m = <span class="number">0xf0000000</span>;</span><br><span class="line">        <span class="type">int</span> ans = <span class="number">0xf0000000</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            m = <span class="built_in">max</span>(m, <span class="number">0</span>) + nums[i];</span><br><span class="line">            ans = <span class="built_in">max</span>(ans, m);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/06/subArraySum/" data-id="clafg505w00155ovl7kzz25ov" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-printTree" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/06/printTree/" class="article-date">
+  <time datetime="2020-12-06T12:47:56.000Z" itemprop="datePublished">2020-12-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/06/printTree/">printTree</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="从上到下打印二叉树"><a href="#从上到下打印二叉树" class="headerlink" title="从上到下打印二叉树"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-ii-lcof/">从上到下打印二叉树</a></h1><p>从上到下按层打印二叉树，同一层的节点按从左到右的顺序打印，每一层打印到一行。</p>
+<p><strong>BFS，层次遍历，利用index记录每一层的个数</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">levelOrder</span>(TreeNode* root) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line">        queue&lt;TreeNode*&gt; q;</span><br><span class="line">        <span class="keyword">if</span> (root) &#123;</span><br><span class="line">            q.<span class="built_in">push</span>(root);</span><br><span class="line">            <span class="keyword">while</span> (!q.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">                vector&lt;<span class="type">int</span>&gt; v&#123;&#125;;</span><br><span class="line">                <span class="type">int</span> level = q.<span class="built_in">size</span>(); <span class="comment">//记录当前层的结点个数</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; level; i++) &#123;</span><br><span class="line">                    TreeNode* tmp = q.<span class="built_in">front</span>();</span><br><span class="line">                    q.<span class="built_in">pop</span>();</span><br><span class="line">                    v.<span class="built_in">push_back</span>(tmp-&gt;val);</span><br><span class="line">                    <span class="keyword">if</span> (tmp-&gt;left) &#123;</span><br><span class="line">                        q.<span class="built_in">push</span>(tmp-&gt;left);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (tmp-&gt;right) &#123;</span><br><span class="line">                        q.<span class="built_in">push</span>(tmp-&gt;right);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                ans.<span class="built_in">push_back</span>(v);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/06/printTree/" data-id="clafg505u000z5ovl28xwabyf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-countOne" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/06/countOne/" class="article-date">
+  <time datetime="2020-12-06T12:36:56.000Z" itemprop="datePublished">2020-12-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/06/countOne/">countOne</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="二进制中1的个数"><a href="#二进制中1的个数" class="headerlink" title="二进制中1的个数"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/er-jin-zhi-zhong-1de-ge-shu-lcof/">二进制中1的个数</a></h1><p>请实现一个函数，输入一个整数（以二进制串形式），输出该数二进制表示中 1 的个数。例如，把 9 表示成二进制是 1001，有 2 位是 1。因此，如果输入 9，则该函数输出 2。</p>
+<p><strong>思路</strong>:利用‘与’运行，因为0 &amp; 1 = 0； 1 &amp; 1 = 1。例如有数1101，然后用1101 &amp; 1 = 1，然后将1101右移一位得到0110，再与1进行‘与’运行，将结果全部相加就可以得到1的个数的和。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">hammingWeight</span><span class="params">(<span class="type">uint32_t</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (n) &#123;</span><br><span class="line">            res += (n &amp; <span class="number">1</span>);</span><br><span class="line">            n &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/06/countOne/" data-id="clafg505a000a5ovl9gasetkp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-linklist" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/04/linklist/" class="article-date">
+  <time datetime="2020-12-04T12:17:30.000Z" itemprop="datePublished">2020-12-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/04/linklist/">linklist</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Leetcode-关于链表的题"><a href="#Leetcode-关于链表的题" class="headerlink" title="Leetcode 关于链表的题"></a>Leetcode 关于链表的题</h1><ol>
+<li>输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。例如，一个链表有6个节点，从头节点开始，它们的值依次是1、2、3、4、5、6。这个链表的倒数第3个节点是值为4的节点。<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/">剑指 Offer 22. 链表中倒数第k个节点</a></li>
+</ol>
+<p>思路:设置双指针，slow和fast, 首先让fast指针先走k步，然后slow指针和fast一起走，直到fast指针指向最后一个元素，此时slow指向倒数第k个结点。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">getKthFromEnd</span><span class="params">(ListNode* head, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        ListNode* slow = head;</span><br><span class="line">        ListNode* fast = head;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; k &amp;&amp; fast; i++, fast = fast-&gt;next);</span><br><span class="line">        <span class="keyword">while</span> (slow &amp;&amp; fast) &#123;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> slow;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<ol start="2">
+<li>给定单向链表的头指针和一个要删除的节点的值，定义一个函数删除该节点。返回删除后的链表的头节点。<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/shan-chu-lian-biao-de-jie-dian-lcof/">删除链表的节点</a></li>
+</ol>
+<p>输入: head = [4,5,1,9], val = 5</p>
+<p>输出: [4,1,9]</p>
+<p>解释: 给定你链表中值为 5 的第二个节点，那么在调用了你的函数之后，该链表应变为 4 -&gt; 1 -&gt; 9.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">deleteNode</span><span class="params">(ListNode* head, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        ListNode* pre = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">0</span>);</span><br><span class="line">        pre-&gt;next = head;</span><br><span class="line">        ListNode* p = pre-&gt;next;</span><br><span class="line">        ListNode* p2 = pre;</span><br><span class="line">        <span class="keyword">for</span> (; p &amp;&amp; p-&gt;val != val; p = p-&gt;next, p2 = p2-&gt;next);</span><br><span class="line">        p2-&gt;next = p-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> pre-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/04/linklist/" data-id="clafg505s000s5ovlekdfchoy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-STL/" rel="tag">C++, STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MRI/" rel="tag">MRI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MRI%E9%87%8D%E5%BB%BA/" rel="tag">MRI重建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/" rel="tag">golang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 17.5px;">C++</a> <a href="/tags/C-STL/" style="font-size: 10px;">C++, STL</a> <a href="/tags/MRI/" style="font-size: 10px;">MRI</a> <a href="/tags/MRI%E9%87%8D%E5%BB%BA/" style="font-size: 10px;">MRI重建</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/golang/" style="font-size: 10px;">golang</a> <a href="/tags/leetcode/" style="font-size: 20px;">leetcode</a> <a href="/tags/linux/" style="font-size: 12.5px;">linux</a> <a href="/tags/math/" style="font-size: 15px;">math</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/11/13/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/22/tightFrameRes/">tightFrameRes</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/20/admm/">admm</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/01/linux/">linux</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/31/soft-threshold/">soft-threshold</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

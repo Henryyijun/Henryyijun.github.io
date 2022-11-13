@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/4/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-reverseLinkList" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/02/reverseLinkList/" class="article-date">
+  <time datetime="2020-12-02T03:08:37.000Z" itemprop="datePublished">2020-12-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/02/reverseLinkList/">reverseLinkList</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/">输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。</a></p>
+<pre><code>输入：head = [1,3,2]
+输出：[2,3,1]
+</code></pre>
+<p><strong>思路</strong>：首先将链表进行原地逆转。<br>例如有链表：dummy-&gt;1-&gt;3-&gt;2; 首先设置两个临时变量pre, p分别指向值为1的节点和值为3的节点。然后进行循环，修改指针：</p>
+<pre><code>第一次循环：
+pre-&gt;next = p-&gt;next,即1-&gt;2,
+p-&gt;next = dummy-&gt;next;即3-&gt;1;
+dummy-&gt;next = p;即dummy-&gt;3-&gt;1-&gt;2;
+然后修改p指向值为2的节点
+第二次循环后就可以得到:dummy-&gt;2-&gt;3-&gt;1;
+</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">reversePrint</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; result;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="literal">NULL</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(head-&gt;next == <span class="literal">NULL</span>) &#123;</span><br><span class="line">            result.<span class="built_in">push_back</span>(head-&gt;val);</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ListNode* dummy = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">0</span>);</span><br><span class="line">        dummy-&gt;next = head;</span><br><span class="line">        ListNode* pre = dummy-&gt;next;</span><br><span class="line">        ListNode* p = pre-&gt;next;</span><br><span class="line">        <span class="keyword">while</span> (pre-&gt;next != <span class="literal">NULL</span>) &#123;</span><br><span class="line">            pre-&gt;next = p-&gt;next;</span><br><span class="line">            p-&gt;next = dummy-&gt;next;</span><br><span class="line">            dummy-&gt;next = p;</span><br><span class="line">            p = pre-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        p = dummy;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">        <span class="keyword">while</span> (p != <span class="literal">NULL</span>) &#123;</span><br><span class="line">            result.<span class="built_in">push_back</span>(p-&gt;val);</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/02/reverseLinkList/" data-id="clafg505v00115ovld0nta5xt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-centos" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/01/centos/" class="article-date">
+  <time datetime="2020-12-01T08:46:51.000Z" itemprop="datePublished">2020-12-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/01/centos/">centos</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="记录一下linux常用操作"><a href="#记录一下linux常用操作" class="headerlink" title="记录一下linux常用操作"></a>记录一下linux常用操作</h1><h2 id="centos-8-上的换源"><a href="#centos-8-上的换源" class="headerlink" title="centos 8 上的换源"></a>centos 8 上的换源</h2><pre><code> 1 使用命令cd /etc/yum.repos.d, 进入源文件所在目录.
+ 2 然后将之前的源文件备份一下，cp CentOS-Base.repo CentOS-Base.repo.back
+ 3 再使用wget下载源文件，wget -O CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-8.repo
+ 4 yum makecache
+ 5 yum update
+</code></pre>
+<h2 id="记录常见错误，以及解决方法"><a href="#记录常见错误，以及解决方法" class="headerlink" title="记录常见错误，以及解决方法"></a>记录常见错误，以及解决方法</h2><h3 id="常见错误1，xxx不在sudoers文件中"><a href="#常见错误1，xxx不在sudoers文件中" class="headerlink" title="常见错误1，xxx不在sudoers文件中"></a>常见错误1，xxx不在sudoers文件中</h3><pre><code>例如在shell终端输入sudo yum install vim， 此时报错字样为：henry is not in the sudoers file.  This incident will be reported.
+解决办法：
+1.首先进入root用户下，在shell终端输入su，然后输入用户密码。
+2.添加sudo文件的写权限,命令是:chmod u+w /etc/sudoers
+3.编辑sudoers文件，命令vim /etc/sudoers
+4.找到这行 root ALL=(ALL) ALL,在他下面添加xxx ALL=(ALL) ALL (这里的xxx是你的用户名)
+完成！
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/01/centos/" data-id="clafg505500055ovl9axhc8xd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-binarySearch" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/01/binarySearch/" class="article-date">
+  <time datetime="2020-12-01T07:36:52.000Z" itemprop="datePublished">2020-12-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/01/binarySearch/">binarySearch</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><pre><code>1. 在有序数组nums中查找值为target的下标，查找失败返回-1
+</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">binarySearch</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> left = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> right = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">        <span class="type">int</span> mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (nums[mid] &gt; target) &#123;</span><br><span class="line">            right = mid - <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &lt; target) &#123;</span><br><span class="line">            left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<pre><code>2. 在有序数组nums中查找都一个比target大的数,失败返回
+</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">binarySearch</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> left = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> right = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> ans = nums.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">        <span class="type">int</span> mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (nums[mid] &gt; target) &#123;</span><br><span class="line">            right = mid - <span class="number">1</span>;</span><br><span class="line">            </span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &lt;= target) &#123;</span><br><span class="line">            left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<pre><code>3. 在有序数组nums中查找都target第一次出现和最后一次出现的位置,失败返回[-1,-1].
+输入：nums = [5,7,7,8,8,10], target = 8
+输出：[3,4]
+
+输入：nums = [5,7,7,8,8,10], target = 6
+输出：[-1,-1]
+</code></pre>
+<p><strong>思路</strong>: 首先先用二分查找找到第一个target出现的位置left，然后查找第一个大于target的位置right，然后用right-1就是target出现最后一次的位置，代码如下</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">searchRange</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left = <span class="built_in">binarySearch</span>(nums, target, <span class="literal">true</span>);</span><br><span class="line">        <span class="type">int</span> right = <span class="built_in">binarySearch</span>(nums, target, <span class="literal">false</span>) - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (left &lt;= right &amp;&amp; right &lt; nums.<span class="built_in">size</span>()  &amp;&amp; nums[left] == target &amp;&amp; nums[right] == target) &#123;</span><br><span class="line">            <span class="keyword">return</span> vector&lt;<span class="type">int</span>&gt; &#123;left, right&#125;; </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> vector&lt;<span class="type">int</span>&gt; &#123;<span class="number">-1</span>, <span class="number">-1</span>&#125;;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">binarySearch</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target, <span class="type">bool</span> flag)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> right = nums.<span class="built_in">size</span>() - <span class="number">1</span> ;</span><br><span class="line">        <span class="type">int</span> ans = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="type">int</span> mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (nums[mid] &gt; target || (flag &amp;&amp; nums[mid] &gt;= target)) &#123;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">                ans = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span>  &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/12/01/binarySearch/" data-id="clafg505000025ovl7mci3cab" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-fourSumCount" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/29/fourSumCount/" class="article-date">
+  <time datetime="2020-11-29T08:34:13.000Z" itemprop="datePublished">2020-11-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/29/fourSumCount/">fourSumCount</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="四数之和"><a href="#四数之和" class="headerlink" title="四数之和"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/4sum-ii/">四数之和</a></h2><pre><code>给定四个包含整数的数组列表 A , B , C , D ,计算有多少个元组 (i, j, k, l) ，使得 A[i] + B[j] + C[k] + D[l] = 0。
+输入:
+A = [ 1, 2]
+B = [-2,-1]
+C = [-1, 2]
+D = [ 0, 2]
+
+输出:
+2
+
+解释:
+两个元组如下:
+1. (0, 0, 0, 1) -&gt; A[0] + B[0] + C[0] + D[1] = 1 + (-2) + (-1) + 2 = 0
+2. (1, 1, 0, 0) -&gt; A[1] + B[1] + C[0] + D[0] = 2 + (-1) + (-1) + 0 = 0
+</code></pre>
+<p><strong>思路</strong><br>使用散列表，先将数组A和B中任意两个数之和放入哈希映射中，每一个键是A[i]+B[j],值是对应的次数。然后在数组C和D之间相对应的建，当遇到-(C[k]+D[l])，则答案加1</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">fourSumCount</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; A, vector&lt;<span class="type">int</span>&gt;&amp; B, vector&lt;<span class="type">int</span>&gt;&amp; C, vector&lt;<span class="type">int</span>&gt;&amp; D)</span> </span>&#123;</span><br><span class="line">        map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; count;</span><br><span class="line">        <span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> &amp;u : A) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> &amp;v : B) &#123;</span><br><span class="line">                ++count[u+v];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> &amp;u : C) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> &amp;v : D) &#123;</span><br><span class="line">                <span class="keyword">if</span> (count.<span class="built_in">count</span>(-u-v))</span><br><span class="line">                    ret += count[-(u+v)];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/29/fourSumCount/" data-id="clafg505h000i5ovl7me44sz3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-convex-opt" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/27/convex-opt/" class="article-date">
+  <time datetime="2020-11-27T08:19:45.000Z" itemprop="datePublished">2020-11-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/27/convex-opt/">convex-optimization</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Chapter-2"><a href="#Chapter-2" class="headerlink" title="Chapter 2"></a>Chapter 2</h1><h2 id="convex-set"><a href="#convex-set" class="headerlink" title="convex set"></a>convex set</h2><h3 id="2-1-Affine-and-convex-set"><a href="#2-1-Affine-and-convex-set" class="headerlink" title="2.1 Affine and convex set"></a>2.1 Affine and convex set</h3><h4 id="2-1-1-Lines-and-line-segment"><a href="#2-1-1-Lines-and-line-segment" class="headerlink" title="2.1.1 Lines and line segment"></a>2.1.1 Lines and line segment</h4><h4 id="2-1-2-Affine-sets"><a href="#2-1-2-Affine-sets" class="headerlink" title="2.1.2 Affine sets"></a>2.1.2 Affine sets</h4><p>​    A set $C \in R^n$ is <strong>affine</strong> if the line through any two distinct points in C lies in C. We refer to a point of the form<br>$ \theta_1x_1+\dots+\theta_k x_k$, where $\theta_1+\dots+\theta_k=1 $, as an affine combination of points $x_1,\dots,x_k$. If C is an affine set, $x_1,\dots,x_k \in C$ and$\theta_1+\dots+\theta_k=1$,then the point $\theta_1x_1+\dots+\theta_k x_k$ also belongs to C.</p>
+<p>​    The set of all affine combinations of points in some $C\subseteq R^n$ is called the <strong>affine hull（仿射包）</strong>of C, and denoted <strong>aff</strong> C:<br>$$<br>aff\quad C = {\theta_1x_1+\dots+\theta_k x_k | x_1, \dots,x_k \in C, \theta_1+\dots+\theta_k=1}<br>$$<br>The affine hull is the smallest affine set that contains C.</p>
+<h4 id="2-1-3-Affine-dimension-and-relative-interior"><a href="#2-1-3-Affine-dimension-and-relative-interior" class="headerlink" title="2.1.3 Affine dimension and relative interior"></a>2.1.3 Affine dimension and relative interior</h4><p>​    The <strong>affine dimension</strong> of a set C as the dimension of its affine hull.</p>
+<p>​    The <strong>relative interior</strong> of a set C is denoted <strong>relint C</strong>,as its interior relative to <strong>aff C</strong>:<br>$$<br>relint \quad C={x\in C|B(x,r) \cap aff \quad C \subseteq C \quad for \quad some \quad r&gt;0}<br>$$<br>where $B(r,x)={ y| ||y-x|| \le r}$.</p>
+<p>​    The <strong>relative boundary</strong> of a set C as cl C \ relint C, where cl C is the closure of C.</p>
+<h4 id="2-1-4-Convex-set"><a href="#2-1-4-Convex-set" class="headerlink" title="2.1.4 Convex set"></a>2.1.4 Convex set</h4><p>​    A set C is convex if the line segment between any two point in C lies in C. i.e., if any $x_1,x_2 \in C$ and any $\theta \in [0,1]$, we have  $\theta x_1+(1-\theta)x_2 \in C$.</p>
+<p>​    We call a point of the from $\theta_1x_1+\dots+\theta_k x_k$, where $\theta_1+\dots+\theta_k=1$ and $\theta_i \ge 0, i=1,\dots,k$, a convex combination of the points  $x_1,\dots,x_k$.</p>
+<p>​    The convex hull of a set C,denoted <strong>conv C</strong>, is the set of all convex combinations  of points in C：</p>
+<p>$$<br>convC={\theta_1x_1+\dots+\theta_k x_k | x_1, \dots,x_k \in C, \theta_1+\dots+\theta_k=1, \theta_i \ge 0, i=1,\dots,k}<br>$$</p>
+<h4 id="2-1-5-Cones"><a href="#2-1-5-Cones" class="headerlink" title="2.1.5 Cones"></a>2.1.5 Cones</h4><p>​    A set C is called a cone, if for every $x \in C$  and $\theta \ge 0$,we have $\theta x \in C$. A set C is convex cone if it is convex and a cone.</p>
+<h3 id="2-2"><a href="#2-2" class="headerlink" title="2.2"></a>2.2</h3><h4 id="2-2-1-Hyperplanes-and-halfspaces"><a href="#2-2-1-Hyperplanes-and-halfspaces" class="headerlink" title="2.2.1 Hyperplanes and halfspaces"></a>2.2.1 Hyperplanes and halfspaces</h4><p>​    A hyperplane is a set of the form ${x|a^Tx=b}$, where $a\in R^n,a\ne 0$ and $b\in R$. It also has the form ${x|a^T(x-x_0)=0}$, where $x_0$is any point in the hyperplane(any point satisfies $a^Tb=0$).</p>
+<h4 id="2-2-2-Euclidean-balls-and-ellipsoids"><a href="#2-2-2-Euclidean-balls-and-ellipsoids" class="headerlink" title="2.2.2 Euclidean balls and ellipsoids"></a>2.2.2 Euclidean balls and ellipsoids</h4><p>​    A ball in $R^n$ has the form $B(x_c,r)={x| \quad\left|x-x_c\right|_2\le r  }={x| (x-x_c)^T(x-x_c) \le r^2}$</p>
+<h4 id="2-2-3-Norm-balls-and-norm-cones"><a href="#2-2-3-Norm-balls-and-norm-cones" class="headerlink" title="2.2.3 Norm balls and norm cones"></a>2.2.3 Norm balls and norm cones</h4><p>​    A norm ball associated with the norm $\left |·\right |$ is the set ${x | \left|x-x_c\right| \le r}$.</p>
+<p>​    A norm cones associated with the norm  $\left |·\right |$ is the set ${(x,t) | \left|x\right| \le t}$.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/27/convex-opt/" data-id="clafg505900095ovl8khf0qfg" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/" rel="tag">math</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-first" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/26/first/" class="article-date">
+  <time datetime="2020-11-26T08:44:22.000Z" itemprop="datePublished">2020-11-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/26/first/">最长字串</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><ul>
+<li><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/">给定一个字符串，请你找出其中不含有重复字符的 <strong>最长子串</strong> 的长度</a></p>
+<p><strong>输入实例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: s = &quot;abcabcbb&quot;</span><br><span class="line">输出: 3 </span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度 3</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>思路</strong></p>
+<p>​    采用滑动窗口的思想，设置两个指针，一个指针<strong>i</strong>指向左边，一个指针<strong>rk</strong> 指向右边，此时最长的字符字串为<strong>s[i]s[i+1]…s[rk]</strong></p>
+<p>，此时长度为<strong>rk-i+1</strong>。具体思路如下所示:</p>
+<ol>
+<li><p>abcabcbb,首先i指针指向第一个字符，可以得到最长的无重复字符字串为(abc)abcbb, ()表示最长的无重复字符字串。</p>
+</li>
+<li><p>abcabcbb a(bca)bcbb</p>
+</li>
+<li><p>abcabcbb,ab(cab)cbb</p>
+</li>
+<li><p>abcabcbb,abc(abc)bb</p>
+</li>
+<li><p>abcabcbb,abca(bc)bb</p>
+</li>
+<li><p>abcabcbb,abcab(cb)b</p>
+</li>
+<li><p>abcabcbb,abcabcb(b)</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        set&lt;<span class="type">char</span>&gt; check;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span> ;</span><br><span class="line">        <span class="type">int</span> rk = <span class="number">-1</span>, left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i != <span class="number">0</span>) &#123;</span><br><span class="line">                check.<span class="built_in">erase</span>(s[i<span class="number">-1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (rk + <span class="number">1</span> &lt; s.<span class="built_in">size</span>() &amp;&amp; check.<span class="built_in">count</span>(s[rk + <span class="number">1</span>]) == <span class="number">0</span>)&#123;</span><br><span class="line">                check.<span class="built_in">insert</span>(s[rk + <span class="number">1</span>]);</span><br><span class="line">                ++rk;</span><br><span class="line">            &#125;</span><br><span class="line">            res = <span class="built_in">max</span>(res, rk - i + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/26/first/" data-id="clafg505f000f5ovl9e9chsqu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-STL/" rel="tag">C++, STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MRI/" rel="tag">MRI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MRI%E9%87%8D%E5%BB%BA/" rel="tag">MRI重建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/" rel="tag">golang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 17.5px;">C++</a> <a href="/tags/C-STL/" style="font-size: 10px;">C++, STL</a> <a href="/tags/MRI/" style="font-size: 10px;">MRI</a> <a href="/tags/MRI%E9%87%8D%E5%BB%BA/" style="font-size: 10px;">MRI重建</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/golang/" style="font-size: 10px;">golang</a> <a href="/tags/leetcode/" style="font-size: 20px;">leetcode</a> <a href="/tags/linux/" style="font-size: 12.5px;">linux</a> <a href="/tags/math/" style="font-size: 15px;">math</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/11/13/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/22/tightFrameRes/">tightFrameRes</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/20/admm/">admm</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/01/linux/">linux</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/31/soft-threshold/">soft-threshold</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
