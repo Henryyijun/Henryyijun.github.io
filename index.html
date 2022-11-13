@@ -1,752 +1,739 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
 
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+<meta name="twitter:card" content="summary_large_image">
   
   
-    <link rel="icon" href="/favicon.png">
   
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+  <title>Hexo</title>
 
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
 <meta name="generator" content="Hexo 5.4.2"></head>
 
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-          <a class="main-nav-link" href="/">Home</a>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
         
-      </nav>
-      <nav id="sub-nav">
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/11/13/hello-world/" class="article-date">
-  <time datetime="2022-11-13T14:19:55.693Z" itemprop="datePublished">2022-11-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/11/13/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/13/hello-world/" data-id="clafg505n000n5ovle13nb6tc" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-tightFrameRes" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/04/22/tightFrameRes/" class="article-date">
-  <time datetime="2021-04-22T01:44:44.000Z" itemprop="datePublished">2021-04-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/04/22/tightFrameRes/">tightFrameRes</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="基于三维紧框架的MRI图像重建-师兄毕设"><a href="#基于三维紧框架的MRI图像重建-师兄毕设" class="headerlink" title="基于三维紧框架的MRI图像重建(师兄毕设)"></a>基于三维紧框架的MRI图像重建(师兄毕设)</h1><h2 id="1-构造用于三维正则化的三维图像数据"><a href="#1-构造用于三维正则化的三维图像数据" class="headerlink" title="1.构造用于三维正则化的三维图像数据"></a>1.构造用于三维正则化的三维图像数据</h2><p>使用目标图像和线圈灵敏度估计出每个线圈缺失的k-空间数据，再结合已获得的准确k-空间数据，通过傅里叶逆变换得到线圈图像。计算出多幅二维图像数据后按照线圈顺序进行叠放，构造出三维图像数据，构造过程如下图1所示.</p>
-<p><img src="1.png" alt="图1"><br>其中橙色和蓝色实线分别表示估计数据与采集到的数据，虚线表示缺失行，先通过目标图像u与灵敏度信息估计出缺失的k-空间数据，结合已获取的k-空间数据g，得到填充后的完整的k-空间数据，再通过傅里叶逆变换得到三维图像数据。$u$ 为目标图像，$g$ 为获取的下采样 $k$-空间数据, $Q_p$ 为采样矩阵，$Q_0=I-Q_p$ 表示非采样位置, $M$ 为傅里叶变换 $𝐹$ 和线圈灵敏度信息 $𝑆$ 的合并.</p>
-<h2 id="2-三维正则化-SENSE-重建模型"><a href="#2-三维正则化-SENSE-重建模型" class="headerlink" title="2. 三维正则化 SENSE 重建模型"></a>2. 三维正则化 <code>SENSE</code> 重建模型</h2><p>本文基于SENSE模型，提出三维正则化 <code>SENSE</code> 重建模型 <code>SENSE-3D</code>:<br>$$<br>\hat{u}=argmin_u { \frac{1}{2} \Vert Q_pMu-g\Vert_2^2+\Vert \Gamma W_{3D}F^{-1}_P(Q_0Mu+g) \Vert_1 }<br>$$</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/22/tightFrameRes/" data-id="clafg505y00175ovl024s1nyz" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MRI%E9%87%8D%E5%BB%BA/" rel="tag">MRI重建</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-admm" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/04/20/admm/" class="article-date">
-  <time datetime="2021-04-20T02:15:38.000Z" itemprop="datePublished">2021-04-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/04/20/admm/">admm</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Admm"><a href="#Admm" class="headerlink" title="Admm"></a>Admm</h1><ol>
-<li>增广拉格朗日 <code>Augmented Lagrangians</code>. 例如，我们可以将最小化问题 $f(x) + g(x)$ 写成：<br>$$<br>\begin{aligned}<br> minimize&amp; \quad f(x) + g(z) \<br> s.t . &amp; \quad x - z = 0<br>\end{aligned}<br>$$<br>该约束优化问题的增广拉格朗日写为：</li>
-</ol>
-<p>$$<br>L_\rho (x, z, y) = f(x) + g(z) + y^T(x-z)+\frac{\rho}{2}\Vert x-z\Vert_2^2<br>$$<br>其中 $\rho &gt; 0$, $y$ 是对偶变量。此时的 <code>ADMM</code> 求解形式为：</p>
-<p>$$<br>\begin{aligned}<br>    &amp;x_{k+1} = argmin_x  L_\rho(x, z^k, y^k) \<br>    &amp;z_{k+1} = argmin_z  L_\rho(x^{k+1}, z, y^k) \<br>    &amp;y_{k+1} = y^k+\rho(x^{k+1}-z^{k+1})<br>\end{aligned}<br>$$</p>
-<ol start="2">
-<li><code>ADMM</code> 的 <code>proximal version</code><br>$$<br>\begin{aligned}<br> x^{k+1} &amp;= argmin_x  L_\rho(x, z^k, y^k) \<pre><code>     &amp;= argmin_x f(x) +g(z^k)+(y^k)^T(x-z^k)+\frac&#123;\rho&#125;&#123;2&#125;\Vert x-z^k\Vert_2^2 \\
-     &amp;= argmin_x f(x) +(y^k)^Tx+\frac&#123;\rho&#125;&#123;2&#125;\Vert x-z^k\Vert_2^2 \\
-     &amp;= argmin_x f(x) + \frac&#123;\rho&#125;&#123;2&#125;\Vert x-z^k+(1/ \rho)y^k\Vert_2^2 + (y^k)^Tz^k - \frac&#123;1&#125;&#123;2\rho&#125;\Vert y^k \Vert_2^2 \\
-     &amp;= argmin_x f(x) + \frac&#123;\rho&#125;&#123;2&#125;\Vert x-z^k+(1/ \rho)y^k\Vert_2^2\\
-     &amp;= prox_&#123;\lambda f&#125;(z^k - u^k)
-</code></pre>
-\end{aligned}<br>$$</li>
-</ol>
-<p>$$<br>\begin{aligned}<br>    z^{k+1} &amp;= argmin_x  L_\rho(x^k, z, y^k) \<br>            &amp;= argmin_x f(x^k) +g(z)+(y^k)^T(x^k-z)+\frac{\rho}{2}\Vert x^k-z\Vert_2^2 \<br>            &amp;= argmin_x g(z) +(y^k)^Tz+\frac{\rho}{2}\Vert x^k-z\Vert_2^2 \<br>            &amp;= argmin_x g(z) + \frac{\rho}{2}\Vert x^{k+1}-z+(1/ \rho)y^k\Vert_2^2 + (y^k)^Tx^{k+1} - \frac{1}{2\rho}\Vert y^k \Vert_2^2 \<br>            &amp;= argmin_x g(z) + \frac{\rho}{2}\Vert x^{k+1}-z+(1/ \rho)y^k\Vert_2^2\<br>            &amp;= prox_{\lambda g}(x^{k+1} + u^k)<br>\end{aligned}</p>
-<p>$$</p>
-<p>其中 $u^k = (1/ \rho)y^k, \lambda=1/ \rho$,因此：<br>$$<br>\begin{aligned}<br>    &amp;x^{k+1} = prox_{\lambda f}(z^k - u^k)\<br>    &amp;z^{k+1} = prox_{\lambda g}(x^{k+1} + u^k)\<br>    &amp;u^{k+1} = u^k+x^{k+1}-z^{k+1}<br>\end{aligned}<br>$$</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/20/admm/" data-id="clafg504w00015ovl058eglh6" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/" rel="tag">math</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-linux" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/04/01/linux/" class="article-date">
-  <time datetime="2021-04-01T12:05:37.000Z" itemprop="datePublished">2021-04-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/04/01/linux/">linux</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="记录-ubuntu-常见错误和操作等"><a href="#记录-ubuntu-常见错误和操作等" class="headerlink" title="记录 ubuntu 常见错误和操作等"></a>记录 <code>ubuntu</code> 常见错误和操作等</h1><h3 id="1-ubuntu-输入-python-报不存在"><a href="#1-ubuntu-输入-python-报不存在" class="headerlink" title="1. ubuntu 输入 python 报不存在"></a>1. <code>ubuntu</code> 输入 <code>python</code> 报不存在</h3><p>错误截图如下所示：</p>
-<div align=center>
-<img src="https://i.loli.net/2021/04/01/JjC2B3q6pdvnWtV.png" width="50%" alt=""/>
-</div>
-
-<p>但是输入 <code>python3</code> 却能正常工作，主要原因是系统自动将软链接命名为  <code>python3</code>。<br>在 <code>/bin</code> 文件目录下输入以下语句：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l | grep python3  </span><br></pre></td></tr></table></figure>
-<p>结果为：</p>
-<div align=center>
-<img src="https://i.loli.net/2021/04/01/SeGJVHz6CZ8UEvB.png" width="80%" alt=""/>
-</div>
-
-<p>此时我们可以将 <code>python3.8</code> 重新进行软连接，新的名字为 <code>python</code>, 具体操作为：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s python3.8 python</span><br></pre></td></tr></table></figure>
-
-<p>此时重新输入 <code>python</code> 就能正常工作了。</p>
-<h3 id="2-chmod-的用法"><a href="#2-chmod-的用法" class="headerlink" title="2. chmod 的用法"></a>2. <code>chmod</code> 的用法</h3><ul>
-<li> 字母法:<code>chmod (u g o a) (+ - =) (r w x) [文件名]</code>, <code>u</code>表示文件的所有者，<code>g</code>表示与文件的所有者属于同一组，即用户组，<code>o</code>表示其他组，<code>a</code>表示所有，即三者皆是。</li>
-<li> <code>+</code>表示增加权限，<code>-</code>表示撤销权限，<code>=</code>表示设定权限，<code>r, w, x</code>分别表示可读，可写，可执行。</li>
-<li> 例如对一个文件添加可执行权限，可以为<code>sudo chmod u+x filename</code>.</li>
-<li>数字法，用法为<code>chmod 数字组合 filename</code>，数字组合由三个数字组成，第一个数字代表<code>u</code>，第二个数字代表<code>g</code>，第三个数字代表<code>o</code>。<code>rwx</code>权限使用三位二进制数字进行表示，例如<code>100,010,001</code>分别<code>r,w,x</code>，换算成十进制分别是4，2，1。</li>
-<li>例如使用数字法：<code>chmod 777 filename</code>，表示<code>u，g,o</code>三种用户对该文件可读可写可执行。</li>
-</ul>
-<h3 id="3-Linux压缩文件，解压文件"><a href="#3-Linux压缩文件，解压文件" class="headerlink" title="3 Linux压缩文件，解压文件"></a>3 Linux压缩文件，解压文件</h3><ul>
-<li><p>zip文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unzip filename.zip</span><br><span class="line">unzip filename.zip -d diretory (把文件解压到指定的目录下)</span><br></pre></td></tr></table></figure></li>
-<li><p>tar解压</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf filename.tar.gz</span><br><span class="line">tar -xvf filename.tar</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="4-Win10-ubuntu子系统目录"><a href="#4-Win10-ubuntu子系统目录" class="headerlink" title="4 Win10 ubuntu子系统目录"></a>4 Win10 ubuntu子系统目录</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/01/linux/" data-id="clafg505t000u5ovl45zgaxl7" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-soft-threshold" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/03/31/soft-threshold/" class="article-date">
-  <time datetime="2021-03-31T06:26:47.000Z" itemprop="datePublished">2021-03-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/31/soft-threshold/">soft-threshold</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="软阈值"><a href="#软阈值" class="headerlink" title="软阈值"></a>软阈值</h1><p>[TOC]</p>
-<h2 id="1-2-das"><a href="#1-2-das" class="headerlink" title="1.2 das"></a>1.2 das</h2><ul>
-<li>根据 <code>proximal operator</code> 的定义，一个函数 <code>f(x)</code> 的 <code>proximal operator</code> 如下公式所示：</li>
-</ul>
-<p>$$<br>prox_{\lambda f} = argmin(f(x) + \frac{1}{2 \rho}\Vert x- v\Vert^2_2)<br>$$</p>
-<ul>
-<li>当函数 <code>f(x) = |x|</code> 时，<code>f(x)</code> 的 <code>proximal operator</code> 此时为软阈值，为：</li>
-</ul>
-<p>$$<br>prox_{\lambda f} =<br>\begin{cases}<br>v-\lambda \quad v &gt; \lambda  \<br>0 \quad \quad \quad |v| \le \lambda \<br>v + \lambda \quad v &lt; -\lambda<br>\end{cases}<br>$$</p>
-<ul>
-<li>证明：</li>
-</ul>
-<ol>
-<li><p>当 $v \in [-\lambda, \lambda]$, 通过 $0 \in \partial(\lambda|x|) + x -v$,可以得到：<br>$$<br>\begin{aligned}<br>&amp;x = 0, \quad \partial(\lambda|x|) + x -v = 0 , \quad \<br>&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = \lambda + x -v &gt; 0 \<br>&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = -\lambda + x -v &lt; 0 \<br>&amp;so \quad prox_{\lambda f}(v) = 0<br>\end{aligned}<br>$$</p>
-</li>
-<li><p> 当 $v &gt; \lambda$, 通过 $0 \in \partial(\lambda|x|) + x -v$,可以得到：<br>$$<br>\begin{aligned}<br>&amp;x = 0, \quad \partial(\lambda|x|) + x -v &lt; 0 , \quad \<br>&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = \lambda + x -v = 0 \<br>&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = -\lambda + x -v &lt; 0 \<br>&amp;so \quad prox_{\lambda f}(v) =  v- \lambda<br>\end{aligned}<br>$$</p>
-</li>
-<li><p> 当 $v  &lt; -\lambda$, 通过 $0 \in \partial(\lambda|x|) + x -v$,可以得到：<br>$$<br>\begin{aligned}<br>&amp;x = 0, \quad \partial(\lambda|x|) + x -v &gt; 0 , \quad \<br>&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = \lambda + x -v &gt; 0 \<br>&amp;x &gt; 0, \quad \partial(\lambda|x|) + x -v = -\lambda + x -v = 0 \<br>&amp;so \quad prox_{\lambda f}(v) =  v+ \lambda<br>\end{aligned}<br>$$</p>
-</li>
-<li><p>软阈值另一种等价形式<br>$$<br>prox_{\lambda f}(v) = sign(v) max{|v| - \lambda, 0}<br>$$</p>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/03/31/soft-threshold/" data-id="clafg505w00135ovl9qowfw2c" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/" rel="tag">math</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-旋转链表" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/03/30/%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/" class="article-date">
-  <time datetime="2021-03-30T10:43:10.000Z" itemprop="datePublished">2021-03-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/30/%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/">旋转链表</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/rotate-list/">旋转链表</a></p>
-<p>给你一个链表的头节点 head ，旋转链表，将链表每个节点向右移动 k 个位置。</p>
-<p><img src="https://i.loli.net/2021/03/30/7aTelS1Mmpv5XB9.png" alt="image.png"></p>
-<ul>
-<li>当k是n的整数倍时，即 <code>k % n = 0</code>, 此时可以直接返回链表头节点 <code>head</code> .</li>
-<li>当 <code>head</code> 为空时，或者链表长度为1时，此时直接返回链表头节点 <code>head</code> 。</li>
-<li>否则，将链表构建成一个循环链表，即将链表尾巴 <code>tail-&gt;next = head</code></li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">    id1((1))</span><br><span class="line">    id2((2))</span><br><span class="line">    id3((3))</span><br><span class="line">    id4((4))</span><br><span class="line">    id5((5))</span><br><span class="line">    id1 --&gt; id2</span><br><span class="line">    id2 --&gt; id3</span><br><span class="line">    id3 --&gt; id4</span><br><span class="line">    id4 --&gt; id5</span><br><span class="line">    id5 --&gt; id1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ul>
-<li>形成循环链表之后，在合适的位置断开。</li>
-<li>通过观察发现， 当 <code>k = 2</code>, <code>n = 5</code>时，此时的链表应该以数字 <code>3</code> 结尾，此时对应的是链表的第 <code>3</code> 个元素。</li>
-<li>当 <code>k = 3</code> 时，此时的链表应该以数字 <code>2</code> 结尾，此时对应的是链表的第 <code>2</code> 个元素。</li>
-<li>因此，我们可以发现通过移动链表 <code>k</code> 个元素之后， 移动后的链表的尾部是原来链表的第 <code>n - k</code> 个元素。</li>
-<li>不失一般性， 当 <code>k &gt;= n </code> 时， 此时的计算公式为  <code>n - k %  n</code>。</li>
-<li>通过以上分析，便可以写出如下的代码啦。</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">rotateRight</span><span class="params">(ListNode* head, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (k == <span class="number">0</span> || head == <span class="literal">nullptr</span> || head-&gt;next == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        ListNode* p = head;</span><br><span class="line">        <span class="type">int</span> n = <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//计算链表长度</span></span><br><span class="line">        <span class="keyword">while</span> (p-&gt;next != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">            n++;  </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> add = n - k % n;</span><br><span class="line">        <span class="keyword">if</span> (add == n) &#123;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        p-&gt;next = head; <span class="comment">// 形成循环链表</span></span><br><span class="line">        <span class="keyword">while</span> (add--) &#123;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode* r = p-&gt;next;</span><br><span class="line">        p-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/03/30/%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/" data-id="clafg5069001y5ovlgjmdddqr" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vector介绍" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/03/19/vector%E4%BB%8B%E7%BB%8D/" class="article-date">
-  <time datetime="2021-03-19T11:49:22.000Z" itemprop="datePublished">2021-03-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/19/vector%E4%BB%8B%E7%BB%8D/">vector介绍</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h1><ul>
-<li><p>vector定义摘要</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>, <span class="keyword">class</span> <span class="title class_">Alloc</span> = alloc&gt;</span><br><span class="line"><span class="keyword">class</span> vector &#123;</span><br><span class="line"> <span class="comment">/// 省略一万字</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-<li><p>vector的构造函数</p>
-</li>
-</ul>
-<ol>
-<li>默认构造函数 <code>vector()</code>;</li>
-<li><code>vector(size_type n, const T&amp; value)</code>;</li>
-<li>拷贝构造函数<code>vector (const vector&amp; x)</code>, <code>vector (const vector&amp; x, const allocator_type&amp; alloc)</code>;</li>
-<li>范围构造函数`vector (InputIterator first, InputIterator last,<pre><code>   const allocator_type&amp; alloc = allocator_type());`
-</code></pre>
-</li>
-<li>移动构造函数<code>vector (vector&amp;&amp; x); vector (vector&amp;&amp; x, const allocator_type&amp; alloc);</code></li>
-<li>列表构造函数`vector (initializer_list<value_type> il,<pre><code>const allocator_type&amp; alloc = allocator_type());`
-</code></pre>
-</li>
-</ol>
-<ul>
-<li>vector的元素操作</li>
-</ul>
-<ol>
-<li><code>push_back(const T&amp; x)</code>:向尾部插入元素</li>
-<li><code>pop_back()</code>:删除尾端元素</li>
-<li><code>iterator erase(iterator first, iterator last)</code>:清除[first, last)的所有元素</li>
-<li><code>iterator erase(iterator positin)</code>:清除某个位置上的元素，返回值为一个迭代器，指向函数调用删除的最后一个元素后面的元素的新位置。</li>
-<li>例子 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// erasing from vector</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">std::vector&lt;<span class="type">int</span>&gt; myvector;</span><br><span class="line"></span><br><span class="line"><span class="comment">// set some values (from 1 to 10)</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>; i&lt;=<span class="number">10</span>; i++) myvector.<span class="built_in">push_back</span>(i);</span><br><span class="line"></span><br><span class="line"><span class="comment">// erase the 6th element</span></span><br><span class="line">myvector.<span class="built_in">erase</span> (myvector.<span class="built_in">begin</span>()+<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// erase the first 3 elements:</span></span><br><span class="line"><span class="keyword">auto</span> i=myvector.<span class="built_in">erase</span> (myvector.<span class="built_in">begin</span>(),myvector.<span class="built_in">begin</span>()+<span class="number">3</span>);</span><br><span class="line">std::cout &lt;&lt; *i &lt;&lt;endl; <span class="comment">//此时的i指向值为4 的元素</span></span><br><span class="line">std::cout &lt;&lt; <span class="string">&quot;myvector contains:&quot;</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">unsigned</span> i=<span class="number">0</span>; i&lt;myvector.<span class="built_in">size</span>(); ++i)</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; myvector[i];</span><br><span class="line">std::cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">output：</span><br><span class="line"><span class="number">4</span></span><br><span class="line">myvector contains: <span class="number">4</span> <span class="number">5</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span></span><br></pre></td></tr></table></figure></li>
-<li><code>void insert(positon, n x)</code>:从positin开始，插入n个元素，初值为x</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/03/19/vector%E4%BB%8B%E7%BB%8D/" data-id="clafg5060001c5ovldjh77u5a" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-STL/" rel="tag">C++, STL</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-在-h文件定义函数出现的错误" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/03/16/%E5%9C%A8-h%E6%96%87%E4%BB%B6%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF/" class="article-date">
-  <time datetime="2021-03-16T07:20:56.000Z" itemprop="datePublished">2021-03-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/16/%E5%9C%A8-h%E6%96%87%E4%BB%B6%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF/">在.h文件定义函数出现的错误</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="在-h定义函数，会在什么阶段发生错误"><a href="#在-h定义函数，会在什么阶段发生错误" class="headerlink" title="在.h定义函数，会在什么阶段发生错误"></a>在.h定义函数，会在什么阶段发生错误</h1><p>如果把函数定义放在头文件，在复杂的工程文件中会出现重定义等错误。为了说明，使用以下例子进行说明。</p>
-<ul>
-<li><p>首先新创建一个工程文件项目，包含<code>A.h</code> , <code>B.h</code> , <code>B.cpp</code> , <code>C.h</code> , <code>C.cpp</code> , <code>main.cpp</code>。各文件内容如下代码所示：</p>
-</li>
-<li><p><code>A.h</code></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> _A_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _A_H</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">fun_A</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure></li>
-<li><p><code>B.h</code>和<code>B.cpp</code></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//B.h</span></span><br><span class="line"><span class="meta">#<span class="keyword">ifndef</span> _B_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _B_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;A.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">fun_B</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//B.cpp</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;B.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">fun_B</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">fun_A</span>() +  <span class="number">10</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p><code>C.h</code>和<code>C.cpp</code></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//C.h</span></span><br><span class="line"><span class="meta">#<span class="keyword">ifndef</span> _C_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _C_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;A.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">fun_C</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//C.cpp</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;C.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">fun_C</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">fun_A</span>() +  <span class="number">20</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p><code>main.cpp</code></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;B.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;C.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">fun_B</span>() &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; <span class="built_in">fun_C</span>() &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>然后分别对<code>B.cpp</code>，<code>C.cpp</code>, <code>main.cpp</code>进行编译</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">g++ -c B.cpp -o B.obj</span><br><span class="line">g++ -c C.cpp -o C.obj</span><br><span class="line">g++ -c main.cpp -o main.obj</span><br></pre></td></tr></table></figure></li>
-<li><p>编译后进行连接</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++ -o test B.obj C.obj main.obj </span><br></pre></td></tr></table></figure></li>
-<li><p>但是此时报错，报错内容如下所示:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ld: C.obj: in function `fun_A()&#x27;:</span><br><span class="line">C.cpp:(.text+0x0): multiple definition of `fun_A()&#x27;; B.obj:B.cpp:(.text+0x0): first defined here</span><br><span class="line">/usr/bin/ld: main.obj: in function `fun_A()&#x27;:</span><br><span class="line">main.cpp:(.text+0x0): multiple definition of `fun_A()&#x27;; B.obj:B.cpp:(.text+0x0): first defined here</span><br><span class="line">collect2: error: ld returned 1 exit status</span><br></pre></td></tr></table></figure>
-
-<p>错误原因分析：因为<code>B.h</code>和 <code>C.h</code>中分别都包含了 <code>A.h</code>这个头文件，最后在 <code>main.cpp</code>中分别又 <code>include</code> 了<code>B.h</code>和<code>C.h</code>两个头文件，这样就会导致在<strong>链接</strong>（link）的时候出现重定义的错误。</p>
-</li>
-<li><p>解决办法：</p>
-<p>在 <code>.h</code> 文件中不进行函数的定义，只声明函数，函数的定义写在<code>.cpp</code>文件中，对于以上的项目文件中，另创建一个<code>A.cpp</code>的文件，将函数<code>fun_A</code>的定义写在<code>A.cpp</code>中，这样就可以避免在链接阶段出现函数重定义的问题了。</p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/03/16/%E5%9C%A8-h%E6%96%87%E4%BB%B6%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF/" data-id="clafg5065001l5ovl3ugx1d0o" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-include双引号和尖括号的区别" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/03/15/include%E5%8F%8C%E5%BC%95%E5%8F%B7%E5%92%8C%E5%B0%96%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
-  <time datetime="2021-03-15T03:12:20.000Z" itemprop="datePublished">2021-03-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/15/include%E5%8F%8C%E5%BC%95%E5%8F%B7%E5%92%8C%E5%B0%96%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%8C%BA%E5%88%AB/">include双引号和尖括号的区别</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="include-“-“-和-lt-gt-的区别"><a href="#include-“-“-和-lt-gt-的区别" class="headerlink" title="include “ “ 和 &lt;&gt; 的区别"></a>include “ “ 和 &lt;&gt; 的区别</h1><p>头文件由创建库的程序员提供。为了声明在库中已有的函数和变量，用户只需包含头文件即可。包含头文件，用使用<code>#include</code> 预处理命令。<code>#include</code>有两种方式来指定文件：尖括号 <code>&lt;&gt;</code> 或双引号 <code>&quot;&quot;</code> 。</p>
-<ul>
-<li><p>以尖括号来指定文件时，预处理器是以特定的方式来指定文件，一般是环境中或编译器命令行指定的某种寻找路径。这种设置寻找路径的机制随机器，操作系统，<code>C++</code> 实现的不同而不同，要视具体情况而定。以尖括号指定文件，如下所示：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;header&gt;</span></span></span><br></pre></td></tr></table></figure></li>
-<li><p>用双引号时，预处理器以 “定义实现的途径” 来寻找文件。它通常是从当前目录开始寻找，如果文件没有找到，那么<code>include</code>命令就按与尖括号同样的方式重新开始寻找。以双引号指定文件，如下所示：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;header&quot;</span></span></span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/03/15/include%E5%8F%8C%E5%BC%95%E5%8F%B7%E5%92%8C%E5%B0%96%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="clafg505q000p5ovl1z347rbq" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-如何让-h文件不被重复引用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/03/15/%E5%A6%82%E4%BD%95%E8%AE%A9-h%E6%96%87%E4%BB%B6%E4%B8%8D%E8%A2%AB%E9%87%8D%E5%A4%8D%E5%BC%95%E7%94%A8/" class="article-date">
-  <time datetime="2021-03-15T03:10:59.000Z" itemprop="datePublished">2021-03-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/15/%E5%A6%82%E4%BD%95%E8%AE%A9-h%E6%96%87%E4%BB%B6%E4%B8%8D%E8%A2%AB%E9%87%8D%E5%A4%8D%E5%BC%95%E7%94%A8/">如何让.h文件不被重复引用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="如何让-h文件不被重复引用"><a href="#如何让-h文件不被重复引用" class="headerlink" title="如何让.h文件不被重复引用"></a>如何让.h文件不被重复引用</h1><p>为了避免让.h文件不被重复引用，有三种方式可以实现该操作，主要为：</p>
-<ol>
-<li>使用宏定义</li>
-<li>使用<code>#pragma once</code>语句</li>
-<li>使用<code>_Pragma</code>操作符</li>
-</ol>
-<p>例如有如下所示的 <code>C++</code> 项目，其内部含有 <code>A.h</code> 和 <code>B.h</code> 这 2 个头文件以及 <code>main.cpp</code> 源文件，其各自包含的代码为：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// A.h</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// B.h</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;A.h&quot;</span></span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> &#123;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//main.cpp</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;A.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;B.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>运行此项目后可以发现，编译器报 (VS studio 2019)<code>“A&quot; : &quot;class” 类型重定义</code> 错误。这是因为在 <code>B.h</code> 文件中已经 <code>include </code> 了一次 <code>A.h</code>，而在 <code>main.cpp </code>主程序又同时 <code> #include</code> 了 <code>A.h</code> 和 <code>B.h</code>，即 <code>A</code> 类的定义被引入了 2 次，<code>C++</code>不允许同一个类被重复定义。</p>
-<p>因此我们此时可以使用之前提到的三种方法处理这种情况，避免头文件的重复引入。</p>
-<ul>
-<li><p>使用宏定义避免</p>
-<p>在实际的<code>C++</code>开发中，可以使用如下的宏定义形式进行避免头文件重复引入：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> _NAME_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _NAME_H</span></span><br><span class="line"><span class="comment">// 头文件内容</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-
-<p>其中，_NAME_H 是宏的名称。需要注意的是，这里设置的宏名必须是独一无二的，不要和项目中其他宏的名称相同。当程序中第一次 <code>#include</code> 该文件时，由于 <code>_NAME_H</code> 尚未定义，所以会定义 <code>_NAME_H</code> 并执行 “头文件内容” 部分的代码；当发生多次 <code>#include</code> 时，因为前面已经定义了 <code>_NAME_H</code>，所以不会再重复执行 “头文件内容” 部分的代码。</p>
-<p>因此，我们对之前的两个类文件进行修改，添加宏定义语句，代码如下所示：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// A.h</span></span><br><span class="line"><span class="meta">#<span class="keyword">ifndef</span> _A_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _A_H</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// B.h</span></span><br><span class="line"><span class="meta">#<span class="keyword">ifndef</span> _B_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _B_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;A.h&quot;</span></span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> &#123;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//main.cpp</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;A.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;B.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>虽然该项目 <code>main.cpp</code> 文件中仍 <code>#include</code> 了 2 次 <code>A.h</code>，但鉴于 <code>_A_H</code> 宏只能定义一次，所以 <code>A</code> 类也仅会定义一次。再次执行该项目会发现，其可以正常执行。</p>
-</li>
-<li><p>使用<code>#pragma once</code>语句</p>
-<p>除了前面第一种最常用的方式之外，还可以使用 <code>#pragma one</code> 指令，将其附加到指定文件的最开头位置，则该文件就只会被 <code>#include</code> 一次。和 <code>ifndef</code> 相比，<code>#pragma once</code> 不涉及宏定义，当编译器遇到它时就会立刻知道当前文件只引入一次，所以效率很高。但值得一提的是，并不是每个版本的编译器都能识别 <code>#pragma once</code> 指令，一些较老版本的编译器就不支持该指令（执行时会发出警告，但编译会继续进行），即 <code>#pragma once</code> 指令的兼容性不是很好。</p>
-</li>
-<li><p>使用<code>_Pragma</code>操作符</p>
-<p><code>C99</code> 标准中新增加了一个和 <code>#pragma</code> 指令类似的 <code>_Pragma </code> 操作符，其可以看做是 <code>#pragma</code> 的增强版，不仅可以实现 <code>#pragma</code> 所有的功能，更重要的是，<code>_Pragma</code> 还能和宏搭配使用。</p>
-<p>当处理头文件重复引入问题时，可以将如下语句添加到相应文件的开头：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">_Pragma</span>(<span class="string">&quot;once&quot;</span>)</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/03/15/%E5%A6%82%E4%BD%95%E8%AE%A9-h%E6%96%87%E4%BB%B6%E4%B8%8D%E8%A2%AB%E9%87%8D%E5%A4%8D%E5%BC%95%E7%94%A8/" data-id="clafg5066001o5ovlfbqe5lo1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-  </nav>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-STL/" rel="tag">C++, STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MRI/" rel="tag">MRI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MRI%E9%87%8D%E5%BB%BA/" rel="tag">MRI重建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/" rel="tag">golang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/" rel="tag">math</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 17.5px;">C++</a> <a href="/tags/C-STL/" style="font-size: 10px;">C++, STL</a> <a href="/tags/MRI/" style="font-size: 10px;">MRI</a> <a href="/tags/MRI%E9%87%8D%E5%BB%BA/" style="font-size: 10px;">MRI重建</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/golang/" style="font-size: 10px;">golang</a> <a href="/tags/leetcode/" style="font-size: 20px;">leetcode</a> <a href="/tags/linux/" style="font-size: 12.5px;">linux</a> <a href="/tags/math/" style="font-size: 15px;">math</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2022/11/13/hello-world/">Hello World</a>
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
+          
         
-          <li>
-            <a href="/2021/04/22/tightFrameRes/">tightFrameRes</a>
-          </li>
         
-          <li>
-            <a href="/2021/04/20/admm/">admm</a>
-          </li>
-        
-          <li>
-            <a href="/2021/04/01/linux/">linux</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/31/soft-threshold/">soft-threshold</a>
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
     </div>
   </div>
+</nav>
 
   
-</aside>
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="An elegant Material-Design theme for Hexo"></span>
+          
+        </div>
+
         
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2022 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
     </div>
   </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          style="margin-top: 0">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/11/13/hello-world/" target="_self">
+          Hello World
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/11/13/hello-world/" target="_self">
+        <div>
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-11-13 22:19" pubdate>
+              2022-11-13
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/04/22/tightFrameRes/" target="_self">
+          tightFrameRes
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/04/22/tightFrameRes/" target="_self">
+        <div>
+          基于三维紧框架的MRI图像重建(师兄毕设)1.构造用于三维正则化的三维图像数据使用目标图像和线圈灵敏度估计出每个线圈缺失的k-空间数据，再结合已获得的准确k-空间数据，通过傅里叶逆变换得到线圈图像。计算出多幅二维图像数据后按照线圈顺序进行叠放，构造出三维图像数据，构造过程如下图1所示. 其中橙色和蓝色实线分别表示估计数据与采集到的数据，虚线表示缺失行，先通过目标图像u与灵敏度信息估计出缺失的k-空
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-22 09:44" pubdate>
+              2021-04-22
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/MRI%E9%87%8D%E5%BB%BA/">#MRI重建</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/04/20/admm/" target="_self">
+          admm
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/04/20/admm/" target="_self">
+        <div>
+          Admm 增广拉格朗日 Augmented Lagrangians. 例如，我们可以将最小化问题 $f(x) + g(x)$ 写成：$$\begin{aligned} minimize&amp; \quad f(x) + g(z) \ s.t . &amp; \quad x - z = 0\end{aligned}$$该约束优化问题的增广拉格朗日写为：  $$L_\rho (x, z, y) =
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-20 10:15" pubdate>
+              2021-04-20
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/math/">#math</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/04/01/linux/" target="_self">
+          linux
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/04/01/linux/" target="_self">
+        <div>
+          记录 ubuntu 常见错误和操作等1. ubuntu 输入 python 报不存在错误截图如下所示：     但是输入 python3 却能正常工作，主要原因是系统自动将软链接命名为  python3。在 /bin 文件目录下输入以下语句： 1ls -l | grep python3   结果为：     此时我们可以将 python3.8 重新进行软连接，新的名字为 python, 具体操作为
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-01 20:05" pubdate>
+              2021-04-01
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/linux/">#linux</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/31/soft-threshold/" target="_self">
+          soft-threshold
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/03/31/soft-threshold/" target="_self">
+        <div>
+          软阈值[TOC] 1.2 das 根据 proximal operator 的定义，一个函数 f(x) 的 proximal operator 如下公式所示：  $$prox_{\lambda f} = argmin(f(x) + \frac{1}{2 \rho}\Vert x- v\Vert^2_2)$$  当函数 f(x) = |x| 时，f(x) 的 proximal operator 此时
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-31 14:26" pubdate>
+              2021-03-31
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/math/">#math</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/30/%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/" target="_self">
+          旋转链表
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/03/30/%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/" target="_self">
+        <div>
+          旋转链表 给你一个链表的头节点 head ，旋转链表，将链表每个节点向右移动 k 个位置。   当k是n的整数倍时，即 k % n = 0, 此时可以直接返回链表头节点 head . 当 head 为空时，或者链表长度为1时，此时直接返回链表头节点 head 。 否则，将链表构建成一个循环链表，即将链表尾巴 tail-&gt;next = head  123456789101112graph LR
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-30 18:43" pubdate>
+              2021-03-30
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/leetcode/">#leetcode</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/19/vector%E4%BB%8B%E7%BB%8D/" target="_self">
+          vector介绍
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/03/19/vector%E4%BB%8B%E7%BB%8D/" target="_self">
+        <div>
+          vector vector定义摘要 12345template&lt;class T, class Alloc = alloc&gt;class vector &#123; /// 省略一万字&#125; vector的构造函数    默认构造函数 vector(); vector(size_type n, const T&amp; value); 拷贝构造函数vector (const vect
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-19 19:49" pubdate>
+              2021-03-19
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/C-STL/">#C++, STL</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/16/%E5%9C%A8-h%E6%96%87%E4%BB%B6%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF/" target="_self">
+          在.h文件定义函数出现的错误
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/03/16/%E5%9C%A8-h%E6%96%87%E4%BB%B6%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF/" target="_self">
+        <div>
+          在.h定义函数，会在什么阶段发生错误如果把函数定义放在头文件，在复杂的工程文件中会出现重定义等错误。为了说明，使用以下例子进行说明。  首先新创建一个工程文件项目，包含A.h , B.h , B.cpp , C.h , C.cpp , main.cpp。各文件内容如下代码所示：  A.h 12345678#ifndef _A_H#define _A_Hint fun_A() &#123;    r
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-16 15:20" pubdate>
+              2021-03-16
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/C/">#C++</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/15/include%E5%8F%8C%E5%BC%95%E5%8F%B7%E5%92%8C%E5%B0%96%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%8C%BA%E5%88%AB/" target="_self">
+          include双引号和尖括号的区别
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/03/15/include%E5%8F%8C%E5%BC%95%E5%8F%B7%E5%92%8C%E5%B0%96%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%8C%BA%E5%88%AB/" target="_self">
+        <div>
+          include “ “ 和 &lt;&gt; 的区别头文件由创建库的程序员提供。为了声明在库中已有的函数和变量，用户只需包含头文件即可。包含头文件，用使用#include 预处理命令。#include有两种方式来指定文件：尖括号 &lt;&gt; 或双引号 &quot;&quot; 。  以尖括号来指定文件时，预处理器是以特定的方式来指定文件，一般是环境中或编译器命令行指定的某种寻找路径。这种设置
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-15 11:12" pubdate>
+              2021-03-15
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/C/">#C++</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/15/%E5%A6%82%E4%BD%95%E8%AE%A9-h%E6%96%87%E4%BB%B6%E4%B8%8D%E8%A2%AB%E9%87%8D%E5%A4%8D%E5%BC%95%E7%94%A8/" target="_self">
+          如何让.h文件不被重复引用
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/03/15/%E5%A6%82%E4%BD%95%E8%AE%A9-h%E6%96%87%E4%BB%B6%E4%B8%8D%E8%A2%AB%E9%87%8D%E5%A4%8D%E5%BC%95%E7%94%A8/" target="_self">
+        <div>
+          如何让.h文件不被重复引用为了避免让.h文件不被重复引用，有三种方式可以实现该操作，主要为：  使用宏定义 使用#pragma once语句 使用_Pragma操作符  例如有如下所示的 C++ 项目，其内部含有 A.h 和 B.h 这 2 个头文件以及 main.cpp 源文件，其各自包含的代码为： 1234567891011121314151617181920// A.hclass A &#1
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-15 11:10" pubdate>
+              2021-03-15
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/C/">#C++</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
   </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
 </body>
 </html>
